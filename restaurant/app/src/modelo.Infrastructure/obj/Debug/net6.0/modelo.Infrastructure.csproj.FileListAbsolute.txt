@@ -1,0 +1,46 @@
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.API\modelo.Infrastructure\modelo.Infrastructure\bin\Debug\net6.0\modelo.Infrastructure.deps.json
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.API\modelo.Infrastructure\modelo.Infrastructure\bin\Debug\net6.0\modelo.Infrastructure.dll
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.API\modelo.Infrastructure\modelo.Infrastructure\bin\Debug\net6.0\modelo.Infrastructure.pdb
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.API\modelo.Infrastructure\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.csproj.AssemblyReference.cache
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.API\modelo.Infrastructure\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.API\modelo.Infrastructure\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.AssemblyInfoInputs.cache
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.API\modelo.Infrastructure\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.AssemblyInfo.cs
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.API\modelo.Infrastructure\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.API\modelo.Infrastructure\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.dll
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.API\modelo.Infrastructure\modelo.Infrastructure\obj\Debug\net6.0\refint\modelo.Infrastructure.dll
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.API\modelo.Infrastructure\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.pdb
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.API\modelo.Infrastructure\modelo.Infrastructure\obj\Debug\net6.0\ref\modelo.Infrastructure.dll
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Infrastructure.deps.json
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Infrastructure.dll
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Infrastructure.pdb
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Application.dll
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Domain.dll
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Application.pdb
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Domain.pdb
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.csproj.AssemblyReference.cache
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.AssemblyInfoInputs.cache
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.AssemblyInfo.cs
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.csproj.CopyComplete
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.dll
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\obj\Debug\net6.0\refint\modelo.Infrastructure.dll
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.pdb
+C:\Projetos\DotNet\projetoModelo\cleanArq\modelo\app\src\modelo.Infrastructure\obj\Debug\net6.0\ref\modelo.Infrastructure.dll
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Infrastructure.deps.json
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Infrastructure.dll
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Infrastructure.pdb
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Application.dll
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Domain.dll
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Application.pdb
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Domain.pdb
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.csproj.AssemblyReference.cache
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.AssemblyInfoInputs.cache
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.AssemblyInfo.cs
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.csproj.CopyComplete
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.dll
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\refint\modelo.Infrastructure.dll
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.pdb
+C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\ref\modelo.Infrastructure.dll
