@@ -1,0 +1,27 @@
+# Pastas
+obj/
+bin/
+PublishOutput/
+
+# Arquivos de build
+*.exe
+*.pdb
+*.dll
+*.log
+*.swp
+*.tmp
+
+# Arquivos gerados pelo Visual Studio
+.vs/
+/.vscode/
+*.suo
+*.user
+*.sln.docstates
+
+# Dependências e pacotes NuGet
+/.nuget/
+*.nupkg
+**/packages/
+project.lock.json
+*.nuget.targets
+**/*.nuget.props
