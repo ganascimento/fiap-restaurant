@@ -8,10 +8,14 @@
           "Microsoft.CSharp": "4.7.0"
         },
         "compile": {
-          "lib/netstandard2.1/AutoMapper.dll": {}
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.1/AutoMapper.dll": {}
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.CSharp/4.7.0": {
@@ -26,10 +30,14 @@
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Newtonsoft.Json.dll": {}
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Newtonsoft.Json.dll": {}
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         }
       },
       "modelo.Domain/1.0.0": {
@@ -173,19 +181,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rodrigo\\.nuget\\packages\\": {}
+    "C:\\Users\\VINICIUSGUIMARAES\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\DotNet\\Nova pasta\\restaurant\\app\\src\\modelo.Application\\modelo.Application.csproj",
+      "projectUniqueName": "D:\\Projects\\fiap-restaurant\\restaurant\\app\\src\\modelo.Application\\modelo.Application.csproj",
       "projectName": "modelo.Application",
-      "projectPath": "C:\\Projetos\\DotNet\\Nova pasta\\restaurant\\app\\src\\modelo.Application\\modelo.Application.csproj",
-      "packagesPath": "C:\\Users\\Rodrigo\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\DotNet\\Nova pasta\\restaurant\\app\\src\\modelo.Application\\obj\\",
+      "projectPath": "D:\\Projects\\fiap-restaurant\\restaurant\\app\\src\\modelo.Application\\modelo.Application.csproj",
+      "packagesPath": "C:\\Users\\VINICIUSGUIMARAES\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\fiap-restaurant\\restaurant\\app\\src\\modelo.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Rodrigo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\VINICIUSGUIMARAES\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -199,8 +207,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Projetos\\DotNet\\Nova pasta\\restaurant\\app\\src\\modelo.Domain\\modelo.Domain.csproj": {
-              "projectPath": "C:\\Projetos\\DotNet\\Nova pasta\\restaurant\\app\\src\\modelo.Domain\\modelo.Domain.csproj"
+            "D:\\Projects\\fiap-restaurant\\restaurant\\app\\src\\modelo.Domain\\modelo.Domain.csproj": {
+              "projectPath": "D:\\Projects\\fiap-restaurant\\restaurant\\app\\src\\modelo.Domain\\modelo.Domain.csproj"
             }
           }
         }
@@ -230,7 +238,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -239,7 +248,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

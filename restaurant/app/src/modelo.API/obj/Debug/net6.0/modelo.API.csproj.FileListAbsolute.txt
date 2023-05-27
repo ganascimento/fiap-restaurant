@@ -97,3 +97,47 @@ C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.API\obj\Debug\net6.0\ref
 C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.API\obj\Debug\net6.0\modelo.API.pdb
 C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.API\obj\Debug\net6.0\modelo.API.genruntimeconfig.cache
 C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.API\obj\Debug\net6.0\ref\modelo.API.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\appsettings.Development.json
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\appsettings.json
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\modelo.API.exe
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\modelo.API.deps.json
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\modelo.API.runtimeconfig.json
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\modelo.API.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\modelo.API.pdb
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\AutoMapper.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\MySqlConnector.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\modelo.Application.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\modelo.Domain.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\modelo.Infrastructure.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\modelo.Application.pdb
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\modelo.Domain.pdb
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\bin\Debug\net6.0\modelo.Infrastructure.pdb
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\modelo.API.csproj.AssemblyReference.cache
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\modelo.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\modelo.API.AssemblyInfoInputs.cache
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\modelo.API.AssemblyInfo.cs
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\modelo.API.csproj.CoreCompileInputs.cache
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\modelo.API.MvcApplicationPartsAssemblyInfo.cache
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\staticwebassets\msbuild.modelo.API.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\staticwebassets\msbuild.build.modelo.API.props
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.modelo.API.props
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.modelo.API.props
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\staticwebassets.build.json
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\staticwebassets.development.json
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\scopedcss\bundle\modelo.API.styles.css
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\modelo.API.csproj.CopyComplete
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\modelo.API.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\refint\modelo.API.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\modelo.API.pdb
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\modelo.API.genruntimeconfig.cache
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.API\obj\Debug\net6.0\ref\modelo.API.dll

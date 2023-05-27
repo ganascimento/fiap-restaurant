@@ -40,3 +40,18 @@ C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Application\obj\Debug\ne
 C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Application\obj\Debug\net6.0\refint\modelo.Application.dll
 C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Application\obj\Debug\net6.0\modelo.Application.pdb
 C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Application\obj\Debug\net6.0\ref\modelo.Application.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\bin\Debug\net6.0\modelo.Application.deps.json
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\bin\Debug\net6.0\modelo.Application.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\bin\Debug\net6.0\modelo.Application.pdb
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\bin\Debug\net6.0\modelo.Domain.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\bin\Debug\net6.0\modelo.Domain.pdb
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\obj\Debug\net6.0\modelo.Application.csproj.AssemblyReference.cache
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\obj\Debug\net6.0\modelo.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\obj\Debug\net6.0\modelo.Application.AssemblyInfoInputs.cache
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\obj\Debug\net6.0\modelo.Application.AssemblyInfo.cs
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\obj\Debug\net6.0\modelo.Application.csproj.CoreCompileInputs.cache
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\obj\Debug\net6.0\modelo.Application.csproj.CopyComplete
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\obj\Debug\net6.0\modelo.Application.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\obj\Debug\net6.0\refint\modelo.Application.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\obj\Debug\net6.0\modelo.Application.pdb
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Application\obj\Debug\net6.0\ref\modelo.Application.dll

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0cadirdFgphFb0+VvnAAj3Ot8wPVovDKQ7YDVPkoO1+Cq4MAFX4xU+AB2tLvLKNioGCCZPhw+gu/BV5cfwj5aQ==",
+  "dgSpecHash": "5KH7eiH/1JDxTn9yndLFWCiFnkVL2WcwxH3J+FH1fygfppg2OOXywAZyJBtRT1MS/MIKPEursXnJUH+OUmRk8w==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\DotNet\\Nova pasta\\restaurant\\app\\src\\modelo.Domain\\modelo.Domain.csproj",
+  "projectFilePath": "D:\\Projects\\fiap-restaurant\\restaurant\\app\\src\\modelo.Domain\\modelo.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

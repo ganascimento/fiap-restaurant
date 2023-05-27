@@ -1,33 +1,45 @@
-version: '3.3'
+version: '3.4'
 services:
-  # backend:
-  #   image: ${DOCKER_REGISTRY-}challenge
-  #   build: 
-  #     context: app/src/modelo.API/
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "5001:5001"
-  #   depends_on:
-  #     - mysqldatabase
+  api:
+    image: ${DOCKER_REGISTRY-}challenge
+    container_name: api
+    build: 
+      context: app/src
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_URLS=http://*:5000
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - db
+    restart: unless-stopped
+    networks:
+      - restaurant_network
 
-  mysqldatabase:
-    image: mysql:8.0.27
-    # command: '--default-authentication-plugin=mysql_native_password'
-    restart: always
+  db:
+    image: mysql:8.0.33
+    container_name: db
+    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: 'challenge'
       MYSQL_DATABASE: 'challenge_db'
       MYSQL_USER: 'challenge_usr'
       MYSQL_PASSWORD: 'challenge_pass'
     ports:
-      - '33060:33060'
       - '3306:3306'
+      - '33060:33060'
     expose:
       - 3306
       - 33060
     volumes:
-      - ./database/init:/docker-entrypoint-initdb.d/
       - db_data:/var/lib/mysql
+      - ./database/init:/docker-entrypoint-initdb.d/
+    networks:
+      - restaurant_network
+    
+networks:
+  restaurant_network:
     
 volumes:
   db_data:

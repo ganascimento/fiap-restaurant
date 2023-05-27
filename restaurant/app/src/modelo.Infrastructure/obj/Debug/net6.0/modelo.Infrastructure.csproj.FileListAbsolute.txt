@@ -44,3 +44,20 @@ C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug
 C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\refint\modelo.Infrastructure.dll
 C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.pdb
 C:\Projetos\DotNet\Nova pasta\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\ref\modelo.Infrastructure.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Infrastructure.deps.json
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Infrastructure.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Infrastructure.pdb
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Application.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Domain.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Application.pdb
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\bin\Debug\net6.0\modelo.Domain.pdb
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.csproj.AssemblyReference.cache
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.AssemblyInfoInputs.cache
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.AssemblyInfo.cs
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.csproj.CopyComplete
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\refint\modelo.Infrastructure.dll
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\modelo.Infrastructure.pdb
+D:\Projects\fiap-restaurant\restaurant\app\src\modelo.Infrastructure\obj\Debug\net6.0\ref\modelo.Infrastructure.dll
