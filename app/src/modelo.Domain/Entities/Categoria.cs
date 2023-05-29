@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace modelo.Domain.Entities
 {
-    public abstract class Entity<Tkey>
+    public class Categoria : Entity<Guid>
     {
-        public Tkey Id { get; set; }
-
+        public string Nome { get; set; }      
 
     }
 }

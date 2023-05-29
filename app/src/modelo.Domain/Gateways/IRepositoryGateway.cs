@@ -13,6 +13,7 @@ namespace modelo.Domain.Gateways
         IQueryable<TEntity> GetAll();
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<IEnumerable<TEntity>> GetByIdAsync(IEnumerable<TKey> Keys);
+        Task<TEntity> GetByIdAsync(TKey Keys);
         Task<IEnumerable<TEntity>> IQueryableToIEnumerableEntity(IQueryable<TEntity> query);
         int Insert(TEntity entity);
         Task InsertAsync(TEntity entity);

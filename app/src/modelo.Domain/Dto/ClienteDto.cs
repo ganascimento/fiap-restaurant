@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace modelo.Domain.Entities
+namespace modelo.Domain.Dto
 {
-    public abstract class Entity<Tkey>
+    public class ClienteDto
     {
-        public Tkey Id { get; set; }
-
 
     }
 }

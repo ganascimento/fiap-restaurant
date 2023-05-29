@@ -54,6 +54,11 @@ namespace modelo.Infrastructure.DataProviders
             return await dbSet.AsNoTracking().Where(x => Keys.Contains(x.Id)).ToListAsync();
         }
 
+        public Task<TEntity> GetByIdAsync(TKey Keys)
+        {
+            throw new NotImplementedException();
+        }
+
         public int Insert(TEntity entity)
         {
             dbSet.Add(entity);
