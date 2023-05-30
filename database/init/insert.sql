@@ -10,3 +10,20 @@ values ('609ef32d-0e78-4883-a3ce-5bb6f382e092',50, 140, '2017-06-17','Chilly');
 insert into challenge_db.tb_WeatherForecast(id, TemperatureC, TemperatureF,Date, Summary)
 values ('609ef32d-0e78-4883-a3ce-5bb6f382e086',40, 130, '2017-06-17','Chilly');
 
+insert into challenge_db.tb_Cliente(id,nome,cpf)
+values ('609ef32d-0e78-4883-a3ce-5bb6f382e180','Blippi','34450347889');
+
+insert into tb_Cliente(id,nome,cpf)
+values ('609ef32d-0e78-4883-a3ce-5bb6f3827180','Juca','54252344881');
+
+insert into challenge_db.tb_Categoria (id,nome)
+values ('609ef32d-0e78-4883-a3ce-5bb6f3827180','Lanche');
+
+insert into challenge_db.tb_Categoria (id,nome)
+values ('609ef32d-0e78-4883-a3ce-5bb6f3817180','Acompanhamento');
+
+insert into challenge_db.tb_Categoria (id,nome)
+values ('609ef32d-0e78-4883-a3ce-5bb6f3847180','Bebida');
+
+insert into challenge_db.tb_Categoria (id,nome)
+values ('609ef32d-0e78-4883-a3ce-5bb6f3847189','Sobremesa');

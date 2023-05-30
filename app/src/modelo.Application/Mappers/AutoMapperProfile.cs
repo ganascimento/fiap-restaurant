@@ -9,6 +9,8 @@ namespace modelo.Application.Mappers
         public AutoMapperProfile()
         {
             CreateMap<WeatherForecastResponse, WeatherForecast>().ReverseMap();
+            CreateMap<ClienteResponse, Cliente>().ReverseMap();
+            CreateMap<CategoriaResponse, Categoria>().ReverseMap();
         }
     }
 }
