@@ -37,6 +37,7 @@ namespace modelo.API
             services.RegisterAutoMapper();
 
             services.AddRazorPages();
+            services.AddSwaggerGen();
 
             services.AddControllersWithViews(options =>
             {
@@ -66,7 +67,15 @@ namespace modelo.API
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSwagger();
+            app.UseSwaggerUI();
+            app.UseReDoc(c=>{
 
+                c.DocumentTitle = "Documento REDOC API";
+                c.SpecUrl = "/swagger/v1/swagger.json";
+
+            });
+           
             app.UseHttpsRedirection();
 
             app.UseRouting();
