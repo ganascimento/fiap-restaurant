@@ -8,6 +8,7 @@
     <Folder Include="ExceptionHandling\" />
     <Folder Include="Factories\" />
     <Folder Include="Interceptors\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
