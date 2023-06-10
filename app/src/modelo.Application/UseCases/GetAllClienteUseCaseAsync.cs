@@ -9,7 +9,7 @@ using modelo.Domain.Gateways;
 
 namespace modelo.Application.UseCases
 {
-    public class GetAllClienteUseCaseAsync :IUseCaseAsyncResponse<IEnumerable<ClienteResponse>>
+    public class GetAllClienteUseCaseAsync :IUseCaseIEnumerableAsync<IEnumerable<ClienteResponse>>
     {
         private readonly IClienteGateway clienteGateway;
         private readonly IMapper mapper;

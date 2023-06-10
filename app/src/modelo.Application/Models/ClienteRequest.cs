@@ -18,13 +18,13 @@ namespace modelo.Application.Models
             CPF = string.Empty;
 
         }
-        [FromRoute(Name = "id")]
+        [FromQuery(Name = "id")]
         public Guid Id { get; set; }
 
-        [FromRoute(Name = "Nome")]
+        [FromQuery(Name = "Nome")]
         public string Nome { get; set; }
 
-        [FromRoute(Name = "CPF")]
+        [FromQuery(Name = "CPF")]
         public string CPF { get; set; }
        
     }

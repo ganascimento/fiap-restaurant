@@ -14,12 +14,12 @@ namespace modelo.API.Controllers
     [Route("[controller]")]
     public class ClienteController : ControllerBase
     {
-        private readonly IUseCaseAsyncResponse<IEnumerable<ClienteResponse>> useCaseAsyncResponse;
+        private readonly IUseCaseIEnumerableAsync<IEnumerable<ClienteResponse>> useCaseAsyncResponse;
         private readonly IUseCaseAsync<ClienteRequest, ClienteResponse> useCaseByNameAsync;
 
         private readonly ILogger<ClienteController> _logger;
 
-        public ClienteController(ILogger<ClienteController> logger, IUseCaseAsyncResponse<IEnumerable<ClienteResponse>> useCaseAsyncResponse, IUseCaseAsync<ClienteRequest, ClienteResponse> useCaseByNameAsync)
+        public ClienteController(ILogger<ClienteController> logger, IUseCaseIEnumerableAsync<IEnumerable<ClienteResponse>> useCaseAsyncResponse, IUseCaseAsync<ClienteRequest, ClienteResponse> useCaseByNameAsync)
         {
             _logger = logger;
             this.useCaseAsyncResponse = useCaseAsyncResponse;

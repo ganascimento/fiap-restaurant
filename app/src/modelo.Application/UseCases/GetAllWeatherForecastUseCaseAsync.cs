@@ -9,7 +9,7 @@ using modelo.Domain.Gateways;
 
 namespace modelo.Application.UseCases
 {
-    public class GetAllWeatherForecastUseCaseAsync :IUseCaseAsyncResponse<IEnumerable<WeatherForecastResponse>>
+    public class GetAllWeatherForecastUseCaseAsync :IUseCaseIEnumerableAsync<IEnumerable<WeatherForecastResponse>>
     {
         private readonly IWeatherForecastGateway weatherForecastGateway;
         private readonly IMapper mapper;

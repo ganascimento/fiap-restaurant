@@ -15,11 +15,11 @@ namespace modelo.API.Controllers
 
     public class CategoriaController : ControllerBase
     {
-        private readonly IUseCaseAsyncResponse<IEnumerable<CategoriaResponse>> useCaseAsyncResponse;
+        private readonly IUseCaseIEnumerableAsync<IEnumerable<CategoriaResponse>> useCaseAsyncResponse;
         
         private readonly ILogger<CategoriaController> _logger;
 
-        public CategoriaController(ILogger<CategoriaController> logger, IUseCaseAsyncResponse<IEnumerable<CategoriaResponse>> useCaseAsyncResponse)
+        public CategoriaController(ILogger<CategoriaController> logger, IUseCaseIEnumerableAsync<IEnumerable<CategoriaResponse>> useCaseAsyncResponse)
         {
             _logger = logger;
             this.useCaseAsyncResponse = useCaseAsyncResponse;

@@ -18,12 +18,18 @@ namespace modelo.Application.UseCases
     {
         Task ExecuteAsync(TRequest request);
     }
-    public interface IUseCaseAsyncResponse<TResponse>
+    public interface IUseCaseIEnumerableAsync<TResponse>
     {
         Task<TResponse> ExecuteAsync();
+    }
+    public interface IUseCaseIEnumerableAsync<TRequest,TResponse>
+    {
+        Task<TResponse> ExecuteAsync(TRequest request);
     }
     public interface IUseCaseAsync<TRequest, TResponse>
     {
        Task<TResponse> ExecuteAsync(TRequest request);
     }
+
+    
 }

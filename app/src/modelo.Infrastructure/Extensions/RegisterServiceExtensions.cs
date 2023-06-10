@@ -22,10 +22,11 @@ namespace modelo.Infrastructure.Extensions
         }
         private static void AddUseCase(IServiceCollection services)
         {
-            services.AddTransient<IUseCaseAsyncResponse<IEnumerable<WeatherForecastResponse>>, GetAllWeatherForecastUseCaseAsync>();
-            services.AddTransient<IUseCaseAsyncResponse<IEnumerable<ClienteResponse>>, GetAllClienteUseCaseAsync>();
+            services.AddTransient<IUseCaseIEnumerableAsync<IEnumerable<WeatherForecastResponse>>, GetAllWeatherForecastUseCaseAsync>();
+            services.AddTransient<IUseCaseIEnumerableAsync<IEnumerable<ClienteResponse>>, GetAllClienteUseCaseAsync>();
             services.AddTransient<IUseCaseAsync< ClienteRequest, ClienteResponse >, GetClienteByNomeUseCaseAsync>();
-            services.AddTransient<IUseCaseAsyncResponse<IEnumerable<CategoriaResponse>>, GetAllCategoriaUseCaseAsync>();
+            services.AddTransient<IUseCaseIEnumerableAsync<IEnumerable<CategoriaResponse>>, GetAllCategoriaUseCaseAsync>();
+            services.AddTransient<IUseCaseIEnumerableAsync<ProdutoRequest,IEnumerable<ProdutoResponse>>, GetProdutoByCategoriaIdUseCaseAsync>();
 
 
         }
@@ -34,6 +35,7 @@ namespace modelo.Infrastructure.Extensions
             services.AddTransient<IWeatherForecastGateway, WeatherForecastRepository>();
             services.AddTransient<IClienteGateway, ClienteRepository>();
             services.AddTransient<ICategoriaGateway, CategoriaRepository>();
+            services.AddTransient<IProdutoGateway, ProdutoRepository>();
         }
         private static void AddOthers(IServiceCollection services)
         {

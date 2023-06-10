@@ -9,7 +9,7 @@ using modelo.Domain.Gateways;
 
 namespace modelo.Application.UseCases
 {
-    public class GetAllCategoriaUseCaseAsync : IUseCaseAsyncResponse<IEnumerable<CategoriaResponse>>
+    public class GetAllCategoriaUseCaseAsync : IUseCaseIEnumerableAsync<IEnumerable<CategoriaResponse>>
     {
         private readonly ICategoriaGateway categoriaGateway;
         private readonly IMapper mapper;
