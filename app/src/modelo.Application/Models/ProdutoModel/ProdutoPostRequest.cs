@@ -1,16 +1,23 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace modelo.Application.Models
+
+namespace modelo.Application.Models.ProdutoModel
 {
-    public class ProdutoResponse
+    public class ProdutoPostRequest
     {
-        [JsonProperty("id")]
-        public Guid Id { get; set; }
+        public ProdutoPostRequest()
+        {
+            Nome = string.Empty;
+            Valor = 0;
+            CategoriaId = Guid.Empty;
+
+        }
 
         [JsonProperty("Nome")]
         public string Nome { get; set; }
@@ -20,6 +27,6 @@ namespace modelo.Application.Models
 
         [JsonProperty("CategoriaId")]
         public Guid? CategoriaId { get; set; }
-     
+
     }
 }

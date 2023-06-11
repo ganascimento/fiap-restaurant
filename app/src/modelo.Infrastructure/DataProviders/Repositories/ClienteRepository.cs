@@ -15,11 +15,11 @@ namespace modelo.Infrastructure.DataProviders.Repositories
         this.dBContext = dbContext;
         }
 
-        public Cliente GetByNome(string nome)
+        public Cliente GetByCPF(string CPF)
         {
             var data = dBContext.Cliente.AsQueryable();
 
-            var result = data.Where(x => x.Nome.Equals(nome)).FirstOrDefault();
+            var result = data.Where(x => x.CPF.Equals(CPF)).FirstOrDefault();
             if (result != null)
                 return result;
 

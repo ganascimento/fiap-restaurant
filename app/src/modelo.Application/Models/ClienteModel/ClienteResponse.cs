@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace modelo.Application.Models
+namespace modelo.Application.Models.ClienteModel
 {
     public class ClienteResponse
     {
@@ -17,6 +17,6 @@ namespace modelo.Application.Models
 
         [JsonProperty("CPF")]
         public string CPF { get; set; }
-       
+
     }
 }

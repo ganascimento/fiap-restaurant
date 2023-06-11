@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using modelo.Application.Models;
+using modelo.Application.Models.CategoriaModel;
 using modelo.Application.UseCases;
 using modelo.Domain.Entities;
 using System;

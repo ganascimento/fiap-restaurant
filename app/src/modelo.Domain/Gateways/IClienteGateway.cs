@@ -10,6 +10,7 @@ namespace modelo.Domain.Gateways
     public interface IClienteGateway : IRepositoryGateway<Cliente, Guid>
     {
        
-        Cliente GetByNome(string nome);
+        Cliente GetByCPF(string CPF);
+
     }
 }

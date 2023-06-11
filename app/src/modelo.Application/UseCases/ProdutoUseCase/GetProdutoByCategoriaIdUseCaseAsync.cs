@@ -4,33 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using modelo.Application.Models;
+using modelo.Application.Models.ProdutoModel;
 using modelo.Domain.Gateways;
 
-namespace modelo.Application.UseCases
+namespace modelo.Application.UseCases.ProdutoUseCase
 {
     public class GetProdutoByCategoriaIdUseCaseAsync : IUseCaseIEnumerableAsync<ProdutoRequest, IEnumerable<ProdutoResponse>>
-    {       
+    {
 
-        private readonly IProdutoGateway produtoGateway;
+        private readonly IProdutoGateway gateway;
         private readonly IMapper mapper;
 
 
-        public GetProdutoByCategoriaIdUseCaseAsync(IProdutoGateway produtoGateway, IMapper mapper)
+        public GetProdutoByCategoriaIdUseCaseAsync(IProdutoGateway gateway, IMapper mapper)
         {
-            this.produtoGateway = produtoGateway;
+            this.gateway = gateway;
             this.mapper = mapper;
 
         }
 
         public async Task<IEnumerable<ProdutoResponse>> ExecuteAsync(ProdutoRequest request)
         {
-            var result = produtoGateway.GetProdutoByCategoriaId(request.CategoriaId);
+            var result = gateway.GetProdutoByCategoriaId(request.CategoriaId);
 
 
             return mapper.Map<IEnumerable<ProdutoResponse>>(result);
         }
 
-        
+
     }
 }

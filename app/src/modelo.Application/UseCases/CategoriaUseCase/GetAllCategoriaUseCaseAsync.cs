@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using modelo.Application.Models;
+using modelo.Application.Models.CategoriaModel;
 using modelo.Domain.Gateways;
 
-namespace modelo.Application.UseCases
+namespace modelo.Application.UseCases.CategoriaUseCase
 {
     public class GetAllCategoriaUseCaseAsync : IUseCaseIEnumerableAsync<IEnumerable<CategoriaResponse>>
     {
@@ -17,7 +17,7 @@ namespace modelo.Application.UseCases
 
         public GetAllCategoriaUseCaseAsync(ICategoriaGateway clienteGateway, IMapper mapper)
         {
-            this.categoriaGateway = clienteGateway;
+            categoriaGateway = clienteGateway;
             this.mapper = mapper;
 
         }

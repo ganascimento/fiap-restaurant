@@ -7,25 +7,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace modelo.Application.Models
+namespace modelo.Application.Models.ClienteModel
 {
-    public class ClienteRequest
+    public class ClientePostRequest
     {
-        public ClienteRequest()
+        public ClientePostRequest()
         {
-            Id = Guid.Empty;
             Nome = string.Empty;
             CPF = string.Empty;
 
         }
-        [FromQuery(Name = "id")]
-        public Guid Id { get; set; }
 
-        [FromQuery(Name = "Nome")]
+        [JsonProperty("Nome")]
         public string Nome { get; set; }
 
-        [FromQuery(Name = "CPF")]
+        [JsonProperty("CPF")]
         public string CPF { get; set; }
-       
+
     }
 }

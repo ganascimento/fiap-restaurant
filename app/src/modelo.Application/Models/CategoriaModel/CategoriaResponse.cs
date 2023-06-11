@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace modelo.Application.Models
+namespace modelo.Application.Models.CategoriaModel
 {
     public class CategoriaResponse
     {

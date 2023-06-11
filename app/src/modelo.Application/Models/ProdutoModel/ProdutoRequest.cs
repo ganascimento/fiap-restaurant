@@ -7,17 +7,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace modelo.Application.Models
+namespace modelo.Application.Models.ProdutoModel
 {
     public class ProdutoRequest
     {
         public ProdutoRequest()
         {
-            CategoriaId = Guid.Empty;            
+            CategoriaId = Guid.Empty;
 
         }
         [FromQuery(Name = "CategoriaId")]
-        public Guid CategoriaId { get; set; }       
-       
+        public Guid CategoriaId { get; set; }
+
     }
 }

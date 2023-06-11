@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using modelo.Application.Models;
+using modelo.Application.Models.ClienteModel;
 using modelo.Application.UseCases;
 using modelo.Domain.Entities;
 using System;
@@ -14,22 +14,31 @@ namespace modelo.API.Controllers
     [Route("[controller]")]
     public class ClienteController : ControllerBase
     {
-        private readonly IUseCaseIEnumerableAsync<IEnumerable<ClienteResponse>> useCaseAsyncResponse;
-        private readonly IUseCaseAsync<ClienteRequest, ClienteResponse> useCaseByNameAsync;
+        private readonly IUseCaseIEnumerableAsync<IEnumerable<ClienteResponse>> getAlluseCase;
+        private readonly IUseCaseAsync<ClienteRequest, ClienteResponse> getByCPFUseCase;
+        private readonly IUseCaseAsync<ClientePostRequest> postUseCase;
+        private readonly IUseCaseAsync<ClienteDeleteRequest> deleteUseCase;
 
         private readonly ILogger<ClienteController> _logger;
 
-        public ClienteController(ILogger<ClienteController> logger, IUseCaseIEnumerableAsync<IEnumerable<ClienteResponse>> useCaseAsyncResponse, IUseCaseAsync<ClienteRequest, ClienteResponse> useCaseByNameAsync)
+        public ClienteController(ILogger<ClienteController> logger,
+            IUseCaseIEnumerableAsync<IEnumerable<ClienteResponse>> getAlluseCase,
+            IUseCaseAsync<ClienteRequest, ClienteResponse> useCaseByCPFAsync,
+            IUseCaseAsync<ClientePostRequest> postUseCase,
+            IUseCaseAsync<ClienteDeleteRequest> deleteUseCase
+            )
         {
             _logger = logger;
-            this.useCaseAsyncResponse = useCaseAsyncResponse;
-            this.useCaseByNameAsync = useCaseByNameAsync;
+            this.getAlluseCase = getAlluseCase;
+            this.getByCPFUseCase = useCaseByCPFAsync;
+            this.postUseCase = postUseCase;
+            this.deleteUseCase = deleteUseCase;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
-            var result = await useCaseAsyncResponse.ExecuteAsync();
+            var result = await getAlluseCase.ExecuteAsync();
 
             if (result.Any())
             {
@@ -39,10 +48,10 @@ namespace modelo.API.Controllers
             return NoContent();
         }
 
-        [HttpGet("{Nome}")]
-        public async Task<IActionResult> ClienteByNomeAsync([FromQuery]ClienteRequest clienteResquest)
+        [HttpGet("{CPF}")]
+        public async Task<IActionResult> ClienteByCPFAsync([FromQuery]ClienteRequest clienteResquest)
         {
-            var result = await useCaseByNameAsync.ExecuteAsync(clienteResquest);
+            var result = await getByCPFUseCase.ExecuteAsync(clienteResquest);
 
             if (result != null)
             {
@@ -50,6 +59,24 @@ namespace modelo.API.Controllers
             }
 
             return NoContent();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBodyAttribute] ClientePostRequest request)
+        {
+            await postUseCase.ExecuteAsync(request);
+            
+            return Ok();
+            
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromQuery] ClienteDeleteRequest request)
+        {
+            await deleteUseCase.ExecuteAsync(request);
+
+            return Ok();
+
         }
     }
 }
