@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using modelo.Application.Models.CategoriaModel;
@@ -19,7 +16,6 @@ namespace modelo.Application.UseCases.CategoriaUseCase
         {
             this.categoriaGateway = clienteGateway;
             this.mapper = mapper;
-
         }
 
         public async Task<IEnumerable<CategoriaResponse>> ExecuteAsync()
