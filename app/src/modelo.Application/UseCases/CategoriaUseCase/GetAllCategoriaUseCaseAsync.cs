@@ -17,7 +17,7 @@ namespace modelo.Application.UseCases.CategoriaUseCase
 
         public GetAllCategoriaUseCaseAsync(ICategoriaGateway clienteGateway, IMapper mapper)
         {
-            categoriaGateway = clienteGateway;
+            this.categoriaGateway = clienteGateway;
             this.mapper = mapper;
 
         }
