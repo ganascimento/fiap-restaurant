@@ -4,8 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
-using modelo.Application.Models;
+using modelo.Application.Models.CategoriaModel;
+using modelo.Application.Models.ClienteModel;
+using modelo.Application.Models.ProdutoModel;
 using modelo.Application.UseCases;
+using modelo.Application.UseCases.CategoriaUseCase;
+using modelo.Application.UseCases.ClienteUseCase;
+using modelo.Application.UseCases.ProdutoUseCase;
 using modelo.Domain.Gateways;
 using modelo.Infrastructure.DataProviders;
 using modelo.Infrastructure.DataProviders.Repositories;
@@ -22,18 +27,32 @@ namespace modelo.Infrastructure.Extensions
         }
         private static void AddUseCase(IServiceCollection services)
         {
-            services.AddTransient<IUseCaseAsyncResponse<IEnumerable<WeatherForecastResponse>>, GetAllWeatherForecastUseCaseAsync>();
-            services.AddTransient<IUseCaseAsyncResponse<IEnumerable<ClienteResponse>>, GetAllClienteUseCaseAsync>();
-            services.AddTransient<IUseCaseAsync< ClienteRequest, ClienteResponse >, GetClienteByNomeUseCaseAsync>();
-            services.AddTransient<IUseCaseAsyncResponse<IEnumerable<CategoriaResponse>>, GetAllCategoriaUseCaseAsync>();
 
+            //Cliente
+            services.AddTransient<IUseCaseIEnumerableAsync<IEnumerable<ClienteResponse>>, GetAllClienteUseCaseAsync>();
+            services.AddTransient<IUseCaseAsync< ClienteRequest, ClienteResponse >, GetClienteByCPFUseCaseAsync>();
+            services.AddTransient<IUseCaseAsync<ClientePostRequest>, PostClienteUseCaseAsync>();
+            services.AddTransient <IUseCaseAsync<ClienteDeleteRequest>, DeleteClienteUseCaseAsync>();
+            //Cliente
 
+            //Categoria
+            services.AddTransient<IUseCaseIEnumerableAsync<IEnumerable<CategoriaResponse>>, GetAllCategoriaUseCaseAsync>();
+            //Categoria
+
+            //Produto
+            services.AddTransient<IUseCaseIEnumerableAsync<IEnumerable<ProdutoResponse>>, GetAllProdutoUseCaseAsync>();
+            services.AddTransient<IUseCaseIEnumerableAsync<ProdutoRequest, IEnumerable<ProdutoResponse>>, GetProdutoByCategoriaIdUseCaseAsync>();
+            services.AddTransient<IUseCaseAsync<ProdutoPostRequest>, PostProdutoUseCaseAsync>();
+            services.AddTransient<IUseCaseAsync<ProdutoPutRequest>, PutProdutoUseCaseAsync>();
+            services.AddTransient<IUseCaseAsync<ProdutoDeleteRequest>, DeleteProdutoUseCaseAsync>();
+            //Produto
         }
         private static void AddRepositories(IServiceCollection services)
         {
             services.AddTransient<IWeatherForecastGateway, WeatherForecastRepository>();
             services.AddTransient<IClienteGateway, ClienteRepository>();
             services.AddTransient<ICategoriaGateway, CategoriaRepository>();
+            services.AddTransient<IProdutoGateway, ProdutoRepository>();
         }
         private static void AddOthers(IServiceCollection services)
         {

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace modelo.Application.Models
+namespace modelo.Application.Models.ClienteModel
 {
-    public class CategoriaResponse
+    public class ClienteResponse
     {
         [JsonProperty("id")]
         public Guid Id { get; set; }
@@ -15,6 +15,8 @@ namespace modelo.Application.Models
         [JsonProperty("Nome")]
         public string Nome { get; set; }
 
+        [JsonProperty("CPF")]
+        public string CPF { get; set; }
 
     }
 }

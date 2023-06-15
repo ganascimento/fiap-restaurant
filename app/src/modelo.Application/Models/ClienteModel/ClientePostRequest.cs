@@ -1,22 +1,28 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace modelo.Application.Models
+
+namespace modelo.Application.Models.ClienteModel
 {
-    public class ClienteResponse
+    public class ClientePostRequest
     {
-        [JsonProperty("id")]
-        public Guid Id { get; set; }
+        public ClientePostRequest()
+        {
+            Nome = string.Empty;
+            CPF = string.Empty;
+
+        }
 
         [JsonProperty("Nome")]
         public string Nome { get; set; }
 
         [JsonProperty("CPF")]
         public string CPF { get; set; }
-       
+
     }
 }

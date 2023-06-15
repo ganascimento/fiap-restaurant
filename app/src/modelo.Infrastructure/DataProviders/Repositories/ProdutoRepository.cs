@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace modelo.Infrastructure.DataProviders.Repositories
 {
-    public class ClienteRepository : RepositoryBase<Cliente,Guid>, IClienteGateway
+    public class ProdutoRepository : RepositoryBase<Produto,Guid>, IProdutoGateway
     {
         private readonly DBContext dBContext;
-        public ClienteRepository(DBContext dbContext) : base(dbContext){
+        public ProdutoRepository(DBContext dbContext) : base(dbContext){
         this.dBContext = dbContext;
         }
 
-        public Cliente GetByCPF(string CPF)
+        public IEnumerable<Produto> GetProdutoByCategoriaId(Guid CategoriaId)
         {
-            var data = dBContext.Cliente.AsQueryable();
+            var data = dBContext.Produto.AsQueryable();
 
-            var result = data.Where(x => x.CPF.Equals(CPF)).FirstOrDefault();
+            var result = data.Where(x => x.CategoriaId.Equals(CategoriaId)).ToList();
             if (result != null)
                 return result;
 

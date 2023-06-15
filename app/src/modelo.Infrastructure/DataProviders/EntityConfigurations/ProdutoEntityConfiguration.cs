@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace modelo.Infrastructure.DataProviders.EntityConfigurations
 {
-    public class CategoriaEntityConfiguration : IEntityTypeConfiguration<Categoria>
+    public class ProdutoEntityConfiguration : IEntityTypeConfiguration<Produto>
 
     {
-        public void Configure(EntityTypeBuilder<Categoria> builder)
+        public void Configure(EntityTypeBuilder<Produto> builder)
         {
             builder
-                .ToTable("tb_Categoria")
+                .ToTable("tb_Produto")
                 .HasKey(p => new { p.Id });
 
             builder.Property(p => p.Id)
@@ -26,10 +26,14 @@ namespace modelo.Infrastructure.DataProviders.EntityConfigurations
                .HasColumnName("Nome")
                .HasColumnType("varchar(200)");
 
-            builder.HasMany(p => p.Produtos)
-                .WithOne(p => p.Categoria)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.Property(p => p.Valor)
+              .HasColumnName("Valor")
+              .HasColumnType("decimal(19,2)");
+
+
+            builder.HasOne(p => p.Categoria)
+                .WithMany(p => p.Produtos);
+
         }
     }
 }

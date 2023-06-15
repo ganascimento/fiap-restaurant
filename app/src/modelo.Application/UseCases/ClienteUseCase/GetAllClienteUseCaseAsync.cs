@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using modelo.Application.Models;
+using modelo.Application.Models.ClienteModel;
 using modelo.Domain.Gateways;
 
-namespace modelo.Application.UseCases
+namespace modelo.Application.UseCases.ClienteUseCase
 {
-    public class GetAllClienteUseCaseAsync :IUseCaseAsyncResponse<IEnumerable<ClienteResponse>>
+    public class GetAllClienteUseCaseAsync : IUseCaseIEnumerableAsync<IEnumerable<ClienteResponse>>
     {
         private readonly IClienteGateway clienteGateway;
         private readonly IMapper mapper;

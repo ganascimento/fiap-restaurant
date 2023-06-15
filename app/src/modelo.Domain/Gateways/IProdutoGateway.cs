@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace modelo.Domain.Gateways
 {
-    public interface IClienteGateway : IRepositoryGateway<Cliente, Guid>
+    public interface IProdutoGateway : IRepositoryGateway<Produto, Guid>
     {
-       
-        Cliente GetByCPF(string CPF);
-
+        IEnumerable<Produto> GetProdutoByCategoriaId(Guid CategoriaId);
     }
 }

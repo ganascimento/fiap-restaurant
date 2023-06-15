@@ -4,27 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using modelo.Application.Models;
+using modelo.Application.Models.ClienteModel;
 using modelo.Domain.Gateways;
 
-namespace modelo.Application.UseCases
+namespace modelo.Application.UseCases.ClienteUseCase
 {
-    public class GetClienteByNomeUseCaseAsync : IUseCaseAsync<ClienteRequest, ClienteResponse>
+    public class GetClienteByCPFUseCaseAsync : IUseCaseAsync<ClienteRequest, ClienteResponse>
     {
         private readonly IClienteGateway clienteGateway;
         private readonly IMapper mapper;
 
 
-        public GetClienteByNomeUseCaseAsync(IClienteGateway clienteGateway, IMapper mapper)
+        public GetClienteByCPFUseCaseAsync(IClienteGateway clienteGateway, IMapper mapper)
         {
             this.clienteGateway = clienteGateway;
             this.mapper = mapper;
 
         }
 
-        public  async Task<ClienteResponse> ExecuteAsync(ClienteRequest request)
+        public async Task<ClienteResponse> ExecuteAsync(ClienteRequest request)
         {
-            var result =  clienteGateway.GetByNome(request.Nome);
+            var result = clienteGateway.GetByCPF(request.CPF);
 
             if (result == null)
                 return null;
@@ -37,6 +37,6 @@ namespace modelo.Application.UseCases
             };
         }
 
-       
+
     }
 }

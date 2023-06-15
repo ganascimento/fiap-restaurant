@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using modelo.Application.Models;
+using modelo.Application.Models.CategoriaModel;
 using modelo.Application.UseCases;
 using modelo.Domain.Entities;
 using System;
@@ -15,11 +15,11 @@ namespace modelo.API.Controllers
 
     public class CategoriaController : ControllerBase
     {
-        private readonly IUseCaseAsyncResponse<IEnumerable<CategoriaResponse>> useCaseAsyncResponse;
+        private readonly IUseCaseIEnumerableAsync<IEnumerable<CategoriaResponse>> useCaseAsyncResponse;
         
         private readonly ILogger<CategoriaController> _logger;
 
-        public CategoriaController(ILogger<CategoriaController> logger, IUseCaseAsyncResponse<IEnumerable<CategoriaResponse>> useCaseAsyncResponse)
+        public CategoriaController(ILogger<CategoriaController> logger, IUseCaseIEnumerableAsync<IEnumerable<CategoriaResponse>> useCaseAsyncResponse)
         {
             _logger = logger;
             this.useCaseAsyncResponse = useCaseAsyncResponse;

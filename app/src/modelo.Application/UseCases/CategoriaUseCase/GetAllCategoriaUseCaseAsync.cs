@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
-using modelo.Application.Models;
+using modelo.Application.Models.CategoriaModel;
 using modelo.Domain.Gateways;
 
-namespace modelo.Application.UseCases
+namespace modelo.Application.UseCases.CategoriaUseCase
 {
-    public class GetAllCategoriaUseCaseAsync : IUseCaseAsyncResponse<IEnumerable<CategoriaResponse>>
+    public class GetAllCategoriaUseCaseAsync : IUseCaseIEnumerableAsync<IEnumerable<CategoriaResponse>>
     {
         private readonly ICategoriaGateway categoriaGateway;
         private readonly IMapper mapper;
@@ -19,7 +16,6 @@ namespace modelo.Application.UseCases
         {
             this.categoriaGateway = clienteGateway;
             this.mapper = mapper;
-
         }
 
         public async Task<IEnumerable<CategoriaResponse>> ExecuteAsync()
