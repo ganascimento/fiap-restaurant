@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using modelo.Application.Models.ClienteModel;
 using modelo.Domain.Gateways;
@@ -11,20 +7,18 @@ namespace modelo.Application.UseCases.ClienteUseCase
 {
     public class GetClienteByCPFUseCaseAsync : IUseCaseAsync<ClienteRequest, ClienteResponse>
     {
-        private readonly IClienteGateway clienteGateway;
-        private readonly IMapper mapper;
-
+        private readonly IClienteGateway _clienteGateway;
+        private readonly IMapper _mapper;
 
         public GetClienteByCPFUseCaseAsync(IClienteGateway clienteGateway, IMapper mapper)
         {
-            this.clienteGateway = clienteGateway;
-            this.mapper = mapper;
-
+            _clienteGateway = clienteGateway;
+            _mapper = mapper;
         }
 
         public async Task<ClienteResponse> ExecuteAsync(ClienteRequest request)
         {
-            var result = clienteGateway.GetByCPF(request.CPF);
+            var result = await _clienteGateway.GetByCPFAsync(request.Cpf);
 
             if (result == null)
                 return null;
@@ -32,11 +26,9 @@ namespace modelo.Application.UseCases.ClienteUseCase
             return new ClienteResponse
             {
                 Id = result.Id,
-                CPF = result.CPF,
+                Cpf = result.Cpf,
                 Nome = result.Nome
             };
         }
-
-
     }
 }

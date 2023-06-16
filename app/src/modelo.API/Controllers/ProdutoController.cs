@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using modelo.Application.Models.ProdutoModel;
 using modelo.Application.UseCases;
-using modelo.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +13,11 @@ namespace modelo.API.Controllers
     [Route("[controller]")]
     public class ProdutoController : ControllerBase
     {
-        private readonly IUseCaseIEnumerableAsync<ProdutoRequest, IEnumerable<ProdutoResponse>> getByCategoriauseCase;
-        private readonly IUseCaseIEnumerableAsync<IEnumerable<ProdutoResponse>> getAlluseCase;
-        private readonly IUseCaseAsync<ProdutoPostRequest> postUseCase;
-        private readonly IUseCaseAsync<ProdutoPutRequest> putUseCase;
-        private readonly IUseCaseAsync<ProdutoDeleteRequest> deleteUseCase;
-
-
+        private readonly IUseCaseIEnumerableAsync<ProdutoRequest, IEnumerable<ProdutoResponse>> _getByCategoriauseCase;
+        private readonly IUseCaseIEnumerableAsync<IEnumerable<ProdutoResponse>> _getAlluseCase;
+        private readonly IUseCaseAsync<ProdutoPostRequest> _postUseCase;
+        private readonly IUseCaseAsync<ProdutoPutRequest> _putUseCase;
+        private readonly IUseCaseAsync<ProdutoDeleteRequest> _deleteUseCase;
         private readonly ILogger<ProdutoController> _logger;
 
         public ProdutoController(ILogger<ProdutoController> logger,
@@ -31,19 +28,17 @@ namespace modelo.API.Controllers
             IUseCaseAsync<ProdutoDeleteRequest> deleteUseCase)
         {
             _logger = logger;
-            this.getByCategoriauseCase = getByCategoriauseCase;
-            this.getAlluseCase = getAlluseCase;
-            this.postUseCase = postUseCase;
-            this.putUseCase = putUseCase;
-            this.deleteUseCase = deleteUseCase;
-
-
+            _getByCategoriauseCase = getByCategoriauseCase;
+            _getAlluseCase = getAlluseCase;
+            _postUseCase = postUseCase;
+            _putUseCase = putUseCase;
+            _deleteUseCase = deleteUseCase;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
-            var result = await getAlluseCase.ExecuteAsync();
+            var result = await _getAlluseCase.ExecuteAsync();
 
             if (result.Any())
             {
@@ -56,7 +51,7 @@ namespace modelo.API.Controllers
         [HttpGet("{CategoriaId}")]
         public async Task<IActionResult> GetProdutoByCategoriaId([FromQuery] ProdutoRequest request)
         {
-            var result = await getByCategoriauseCase.ExecuteAsync(request);
+            var result = await _getByCategoriauseCase.ExecuteAsync(request);
 
             if (result != null)
             {
@@ -69,10 +64,9 @@ namespace modelo.API.Controllers
         [HttpPost()]
         public async Task<IActionResult> Post([FromBodyAttribute] ProdutoPostRequest request)
         {
-            await postUseCase.ExecuteAsync(request);
+            await _postUseCase.ExecuteAsync(request);
 
             return Ok();
-
         }
 
         [HttpPut("{Id}")]
@@ -80,19 +74,17 @@ namespace modelo.API.Controllers
         {
             request.Id = Id;
 
-            await putUseCase.ExecuteAsync(request);
+            await _putUseCase.ExecuteAsync(request);
 
             return Ok();
-
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete([FromQuery] ProdutoDeleteRequest request)
         {
-            await deleteUseCase.ExecuteAsync(request);
+            await _deleteUseCase.ExecuteAsync(request);
 
             return Ok();
-
         }
     }
 }

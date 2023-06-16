@@ -1,11 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace modelo.Application.Models.ClienteModel
 {
@@ -13,11 +6,10 @@ namespace modelo.Application.Models.ClienteModel
     {
         public ClienteRequest()
         {
-            CPF = string.Empty;
+            Cpf = string.Empty;
         }
 
-        [FromQuery(Name = "CPF")]
-        public string CPF { get; set; }
-
+        [FromQuery(Name = "Cpf")]
+        public string Cpf { get; set; }
     }
 }

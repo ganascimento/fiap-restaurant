@@ -1,25 +1,25 @@
-﻿using modelo.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using modelo.Domain.Entities;
 using modelo.Domain.Gateways;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace modelo.Infrastructure.DataProviders.Repositories
 {
-    public class ProdutoRepository : RepositoryBase<Produto,Guid>, IProdutoGateway
+    public class ProdutoRepository : RepositoryBase<Produto, Guid>, IProdutoGateway
     {
-        private readonly DBContext dBContext;
-        public ProdutoRepository(DBContext dbContext) : base(dbContext){
-        this.dBContext = dbContext;
+        private readonly DbSet<Produto> _produtoDbSet;
+
+        public ProdutoRepository(DBContext dbContext) : base(dbContext)
+        {
+            _produtoDbSet = dbContext.Set<Produto>();
         }
 
-        public IEnumerable<Produto> GetProdutoByCategoriaId(Guid CategoriaId)
+        public async Task<IEnumerable<Produto>> GetProdutoByCategoriaIdAsync(Guid categoriaId)
         {
-            var data = dBContext.Produto.AsQueryable();
-
-            var result = data.Where(x => x.CategoriaId.Equals(CategoriaId)).ToList();
+            var result = await _produtoDbSet.Where(x => x.CategoriaId.Equals(categoriaId)).ToListAsync();
             if (result != null)
                 return result;
 

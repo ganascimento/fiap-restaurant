@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using modelo.Domain.Entities;
+using modelo.Domain.Entities.Base;
 
 namespace modelo.Infrastructure.Extensions
 {
     public static class DataProviderExtensions
     {
-       public static IQueryable<TEntity> WhereIdEquals<TEntity, TKey>(this IQueryable<TEntity> source, Expression<Func<TEntity, TKey>> KeyExpression, TKey otherKeyValue)
-        where TEntity : Entity<TKey>
+        public static IQueryable<TEntity> WhereIdEquals<TEntity, TKey>(this IQueryable<TEntity> source, Expression<Func<TEntity, TKey>> KeyExpression, TKey otherKeyValue)
+         where TEntity : Entity<TKey>
         {
             var memberExpression = (MemberExpression)KeyExpression.Body;
             var parameter = Expression.Parameter(typeof(TEntity), "x");
@@ -19,7 +16,6 @@ namespace modelo.Infrastructure.Extensions
             var equal = Expression.Equal(property, Expression.Constant(otherKeyValue));
             var lambda = Expression.Lambda<Func<TEntity, bool>>(equal, parameter);
             return source.Where(lambda);
-
         }
     }
 }

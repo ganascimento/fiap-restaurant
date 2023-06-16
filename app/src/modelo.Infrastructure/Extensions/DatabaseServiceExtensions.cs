@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
@@ -17,10 +13,7 @@ namespace modelo.Infrastructure.Extensions
         {
             try
             {
-                if (environment.IsTesting())
-                {
-                    return;
-                }
+                if (environment.IsTesting()) return;
 
                 var connectionString = environment.IsDevelopment() ? GetConnectionString(configurations) : GetLocalConnectionStringDocker(configurations);
 
@@ -28,15 +21,12 @@ namespace modelo.Infrastructure.Extensions
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
 
         private static object GetConnectionString(IConfiguration configurations) => configurations.GetConnectionString("Local");
 
-
         private static object GetLocalConnectionStringDocker(IConfiguration configurations) => configurations.GetConnectionString("Docker");
-        
     }
 }

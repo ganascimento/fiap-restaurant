@@ -1,15 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace modelo.Application.Models.ProdutoModel
 {
     public class ProdutoResponse
     {
-        [JsonProperty("id")]
+        [JsonProperty("Id")]
         public Guid Id { get; set; }
 
         [JsonProperty("Nome")]
@@ -20,6 +16,5 @@ namespace modelo.Application.Models.ProdutoModel
 
         [JsonProperty("CategoriaId")]
         public Guid? CategoriaId { get; set; }
-
     }
 }

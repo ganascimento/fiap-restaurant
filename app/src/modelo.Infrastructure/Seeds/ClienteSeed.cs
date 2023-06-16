@@ -9,18 +9,8 @@ namespace modelo.Infrastructure.Seeds
         public static void Seed(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Cliente>().HasData(
-                new Cliente
-                {
-                    Id = Guid.NewGuid(),
-                    Nome = "Juca",
-                    CPF = "54252344881"
-                },
-                new Cliente
-                {
-                    Id = Guid.NewGuid(),
-                    Nome = "Blippi",
-                    CPF = "34450347889"
-                }
+                new Cliente(nome: "Juca", cpf: "08154831473"),
+                new Cliente(nome: "Blippi", cpf: "26521727788")
             );
         }
     }

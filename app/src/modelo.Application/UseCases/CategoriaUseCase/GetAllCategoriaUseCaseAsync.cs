@@ -8,21 +8,20 @@ namespace modelo.Application.UseCases.CategoriaUseCase
 {
     public class GetAllCategoriaUseCaseAsync : IUseCaseIEnumerableAsync<IEnumerable<CategoriaResponse>>
     {
-        private readonly ICategoriaGateway categoriaGateway;
-        private readonly IMapper mapper;
-
+        private readonly ICategoriaGateway _categoriaGateway;
+        private readonly IMapper _mapper;
 
         public GetAllCategoriaUseCaseAsync(ICategoriaGateway clienteGateway, IMapper mapper)
         {
-            this.categoriaGateway = clienteGateway;
-            this.mapper = mapper;
+            _categoriaGateway = clienteGateway;
+            _mapper = mapper;
         }
 
         public async Task<IEnumerable<CategoriaResponse>> ExecuteAsync()
         {
-            var result = await categoriaGateway.GetAllAsync();
+            var result = await _categoriaGateway.GetAllAsync();
 
-            return mapper.Map<IEnumerable<CategoriaResponse>>(result);
+            return _mapper.Map<IEnumerable<CategoriaResponse>>(result);
         }
     }
 }

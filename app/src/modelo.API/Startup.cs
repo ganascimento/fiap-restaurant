@@ -26,8 +26,6 @@ namespace modelo.API
 
         private readonly IWebHostEnvironment Environment;
 
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             this.AppConfigurations = services.RegisterConfigurations(Configuration);
@@ -45,6 +43,8 @@ namespace modelo.API
             }).AddNewtonsoftJson(options => ConfigureJsonOptionsSerializer(options.SerializerSettings));
 
             services.RegisterDatabases(Configuration, Environment);
+
+            services.AddMemoryCache();
             services.AddControllers();
         }
 
@@ -60,7 +60,6 @@ namespace modelo.API
             serializerSettings.NullValueHandling = NullValueHandling.Ignore;
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -68,14 +67,17 @@ namespace modelo.API
                 app.UseDeveloperExceptionPage();
             }
             app.UseSwagger();
-            app.UseSwaggerUI();
-            app.UseReDoc(c=>{
-
+            app.UseSwaggerUI(c =>
+            {
+                c.RoutePrefix = "swagger";
+            });
+            app.UseReDoc(c =>
+            {
                 c.DocumentTitle = "Documento REDOC API";
                 c.SpecUrl = "/swagger/v1/swagger.json";
-
+                c.RoutePrefix = "";
             });
-           
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

@@ -1,25 +1,24 @@
-﻿using modelo.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using modelo.Domain.Entities;
 using modelo.Domain.Gateways;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace modelo.Infrastructure.DataProviders.Repositories
 {
-    public class ClienteRepository : RepositoryBase<Cliente,Guid>, IClienteGateway
+    public class ClienteRepository : RepositoryBase<Cliente, Guid>, IClienteGateway
     {
-        private readonly DBContext dBContext;
-        public ClienteRepository(DBContext dbContext) : base(dbContext){
-        this.dBContext = dbContext;
+        private readonly DbSet<Cliente> _clienteDbSet;
+
+        public ClienteRepository(DBContext dbContext) : base(dbContext)
+        {
+            _clienteDbSet = dbContext.Set<Cliente>();
         }
 
-        public Cliente GetByCPF(string CPF)
+        public async Task<Cliente> GetByCPFAsync(string cpf)
         {
-            var data = dBContext.Cliente.AsQueryable();
-
-            var result = data.Where(x => x.CPF.Equals(CPF)).FirstOrDefault();
+            var result = await _clienteDbSet.Where(x => x.Cpf.Equals(cpf)).FirstOrDefaultAsync();
             if (result != null)
                 return result;
 

@@ -1,29 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using modelo.Domain.Gateways;
-using modelo.Domain.Entities;
 using modelo.Application.Models.ProdutoModel;
 
 namespace modelo.Application.UseCases.ProdutoUseCase
 {
     public class DeleteProdutoUseCaseAsync : IUseCaseAsync<ProdutoDeleteRequest>
     {
-        private readonly IProdutoGateway gateway;
-        private readonly IMapper mapper;
+        private readonly IProdutoGateway _gateway;
 
-        public DeleteProdutoUseCaseAsync(IProdutoGateway gateway, IMapper mapper)
+        public DeleteProdutoUseCaseAsync(IProdutoGateway gateway)
         {
-            this.gateway = gateway;
-            this.mapper = mapper;
-
+            _gateway = gateway;
         }
+
         public async Task ExecuteAsync(ProdutoDeleteRequest request)
         {
-            await gateway.DeleteAsync(request.Id);
+            await _gateway.DeleteAsync(request.Id);
         }
     }
 }
