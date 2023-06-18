@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using modelo.Domain.Gateways;
 using modelo.Domain.Entities;
@@ -12,22 +8,22 @@ namespace modelo.Application.UseCases.ClienteUseCase
 {
     public class PostClienteUseCaseAsync : IUseCaseAsync<ClientePostRequest>
     {
-        private readonly IClienteGateway clienteGateway;
-        private readonly IMapper mapper;
-
+        private readonly IClienteGateway _clienteGateway;
+        private readonly IMapper _mapper;
 
         public PostClienteUseCaseAsync(IClienteGateway clienteGateway, IMapper mapper)
         {
-            this.clienteGateway = clienteGateway;
-            this.mapper = mapper;
-
+            _clienteGateway = clienteGateway;
+            _mapper = mapper;
         }
 
         public async Task ExecuteAsync(ClientePostRequest request)
         {
-            var insert = mapper.Map<ClientePostRequest, Cliente>(request);
+            var insert = _mapper.Map<ClientePostRequest, Cliente>(request);
+            var checkCliente = await _clienteGateway.GetByCPFAsync(insert.Cpf);
+            insert.CheckClienteAlreadyExists(checkCliente);
 
-            clienteGateway.Insert(insert);
+            await _clienteGateway.InsertAsync(insert);
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using modelo.Domain.Gateways;
 using modelo.Domain.Entities;
@@ -12,21 +8,20 @@ namespace modelo.Application.UseCases.ProdutoUseCase
 {
     public class PostProdutoUseCaseAsync : IUseCaseAsync<ProdutoPostRequest>
     {
-        private readonly IProdutoGateway gateway;
-        private readonly IMapper mapper;
-
+        private readonly IProdutoGateway _gateway;
+        private readonly IMapper _mapper;
 
         public PostProdutoUseCaseAsync(IProdutoGateway gateway, IMapper mapper)
         {
-            this.gateway = gateway;
-            this.mapper = mapper;
+            _gateway = gateway;
+            _mapper = mapper;
 
         }
         public async Task ExecuteAsync(ProdutoPostRequest request)
         {
-            var insert = mapper.Map<ProdutoPostRequest, Produto>(request);
+            var insert = _mapper.Map<ProdutoPostRequest, Produto>(request);
 
-            gateway.Insert(insert);
+            await _gateway.InsertAsync(insert);
         }
     }
 }

@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace modelo.Infrastructure.Extensions
 {
@@ -15,7 +11,8 @@ namespace modelo.Infrastructure.Extensions
             "debug"
         };
 
-        public static bool IsDevelopment(this IWebHostEnvironment env) {
+        public static bool IsDevelopment(this IWebHostEnvironment env)
+        {
             return devEnviroment.Contains(env.EnvironmentName.ToLowerInvariant());
         }
 
@@ -23,6 +20,5 @@ namespace modelo.Infrastructure.Extensions
         {
             return env.EnvironmentName.ToLowerInvariant() == "testing";
         }
-
     }
 }

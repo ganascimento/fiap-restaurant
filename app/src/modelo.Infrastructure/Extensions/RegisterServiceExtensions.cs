@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 using modelo.Application.Models.CategoriaModel;
 using modelo.Application.Models.ClienteModel;
@@ -27,33 +23,25 @@ namespace modelo.Infrastructure.Extensions
         }
         private static void AddUseCase(IServiceCollection services)
         {
-
-            //Cliente
             services.AddTransient<IUseCaseIEnumerableAsync<IEnumerable<ClienteResponse>>, GetAllClienteUseCaseAsync>();
-            services.AddTransient<IUseCaseAsync< ClienteRequest, ClienteResponse >, GetClienteByCPFUseCaseAsync>();
+            services.AddTransient<IUseCaseAsync<ClienteRequest, ClienteResponse>, GetClienteByCPFUseCaseAsync>();
             services.AddTransient<IUseCaseAsync<ClientePostRequest>, PostClienteUseCaseAsync>();
-            services.AddTransient <IUseCaseAsync<ClienteDeleteRequest>, DeleteClienteUseCaseAsync>();
-            //Cliente
-
-            //Categoria
+            services.AddTransient<IUseCaseAsync<ClienteDeleteRequest>, DeleteClienteUseCaseAsync>();
             services.AddTransient<IUseCaseIEnumerableAsync<IEnumerable<CategoriaResponse>>, GetAllCategoriaUseCaseAsync>();
-            //Categoria
-
-            //Produto
             services.AddTransient<IUseCaseIEnumerableAsync<IEnumerable<ProdutoResponse>>, GetAllProdutoUseCaseAsync>();
             services.AddTransient<IUseCaseIEnumerableAsync<ProdutoRequest, IEnumerable<ProdutoResponse>>, GetProdutoByCategoriaIdUseCaseAsync>();
             services.AddTransient<IUseCaseAsync<ProdutoPostRequest>, PostProdutoUseCaseAsync>();
             services.AddTransient<IUseCaseAsync<ProdutoPutRequest>, PutProdutoUseCaseAsync>();
             services.AddTransient<IUseCaseAsync<ProdutoDeleteRequest>, DeleteProdutoUseCaseAsync>();
-            //Produto
         }
+
         private static void AddRepositories(IServiceCollection services)
         {
-            services.AddTransient<IWeatherForecastGateway, WeatherForecastRepository>();
             services.AddTransient<IClienteGateway, ClienteRepository>();
             services.AddTransient<ICategoriaGateway, CategoriaRepository>();
             services.AddTransient<IProdutoGateway, ProdutoRepository>();
         }
+
         private static void AddOthers(IServiceCollection services)
         {
             services.AddTransient<DBContext>();

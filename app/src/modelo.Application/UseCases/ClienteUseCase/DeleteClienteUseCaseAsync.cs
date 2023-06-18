@@ -1,31 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using modelo.Domain.Gateways;
-using modelo.Domain.Entities;
 using modelo.Application.Models.ClienteModel;
 
 namespace modelo.Application.UseCases.ClienteUseCase
 {
     public class DeleteClienteUseCaseAsync : IUseCaseAsync<ClienteDeleteRequest>
     {
-        private readonly IClienteGateway clienteGateway;
-        private readonly IMapper mapper;
+        private readonly IClienteGateway _clienteGateway;
 
-
-        public DeleteClienteUseCaseAsync(IClienteGateway clienteGateway, IMapper mapper)
+        public DeleteClienteUseCaseAsync(IClienteGateway clienteGateway)
         {
-            this.clienteGateway = clienteGateway;
-            this.mapper = mapper;
-
+            _clienteGateway = clienteGateway;
         }
 
         public async Task ExecuteAsync(ClienteDeleteRequest request)
         {
-            await clienteGateway.DeleteAsync(request.Id);
+            await _clienteGateway.DeleteAsync(request.Id);
         }
     }
 }

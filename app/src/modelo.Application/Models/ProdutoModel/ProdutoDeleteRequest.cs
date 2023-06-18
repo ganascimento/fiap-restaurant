@@ -1,11 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace modelo.Application.Models.ProdutoModel
 {
@@ -14,10 +8,9 @@ namespace modelo.Application.Models.ProdutoModel
         public ProdutoDeleteRequest()
         {
             Id = Guid.Empty;
-
         }
-        [JsonProperty("id")]
-        public Guid Id { get; set; }
 
+        [JsonProperty("Id")]
+        public Guid Id { get; set; }
     }
 }

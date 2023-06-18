@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using modelo.Application.Models.ClienteModel;
@@ -11,22 +8,21 @@ namespace modelo.Application.UseCases.ClienteUseCase
 {
     public class GetAllClienteUseCaseAsync : IUseCaseIEnumerableAsync<IEnumerable<ClienteResponse>>
     {
-        private readonly IClienteGateway clienteGateway;
-        private readonly IMapper mapper;
-
+        private readonly IClienteGateway _clienteGateway;
+        private readonly IMapper _mapper;
 
         public GetAllClienteUseCaseAsync(IClienteGateway clienteGateway, IMapper mapper)
         {
-            this.clienteGateway = clienteGateway;
-            this.mapper = mapper;
+            _clienteGateway = clienteGateway;
+            _mapper = mapper;
 
         }
 
         public async Task<IEnumerable<ClienteResponse>> ExecuteAsync()
         {
-            var result = await clienteGateway.GetAllAsync();
+            var result = await _clienteGateway.GetAllAsync();
 
-            return mapper.Map<IEnumerable<ClienteResponse>>(result);
+            return _mapper.Map<IEnumerable<ClienteResponse>>(result);
         }
     }
 }

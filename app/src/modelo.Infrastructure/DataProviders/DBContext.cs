@@ -7,8 +7,6 @@ namespace modelo.Infrastructure.DataProviders
 {
     public class DBContext : DbContext
     {
-        public DbSet<WeatherForecast> WeatherForecast { get; set; }
-
         public DbSet<Cliente> Cliente { get; set; }
 
         public DbSet<Categoria> Categoria { get; set; }
@@ -21,8 +19,6 @@ namespace modelo.Infrastructure.DataProviders
         {
 
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.ApplyConfiguration(new WeatherForecastEntityConfiguration());
 
             modelBuilder.ApplyConfiguration(new ClienteEntityConfiguration());
 
