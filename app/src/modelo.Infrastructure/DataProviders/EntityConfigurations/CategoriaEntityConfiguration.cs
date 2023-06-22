@@ -21,7 +21,8 @@ namespace modelo.Infrastructure.DataProviders.EntityConfigurations
             builder.HasMany(p => p.Produtos)
                 .WithOne(p => p.Categoria)
                 .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Cascade);            
         }
     }
+    
 }
