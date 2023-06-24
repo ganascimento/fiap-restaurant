@@ -3,6 +3,7 @@ using modelo.Application.Models.CategoriaModel;
 using modelo.Application.Models.ClienteModel;
 using modelo.Application.Models.PedidoModel;
 using modelo.Application.Models.ProdutoModel;
+using modelo.Application.Models.AcompanhamentoModel;
 using modelo.Domain.Entities;
 using modelo.Domain.ValueObjects;
 
@@ -24,6 +25,9 @@ namespace modelo.Application.Mappers
             CreateMap<PedidoPostRequest, Pedido>().ReverseMap();
             CreateMap<PedidoResponse, Pedido>().ReverseMap();
             CreateMap<PedidoDetalhadoResponse, PedidoDetalhadoDto>().ReverseMap();
+
+            CreateMap<AcompanhamentoResponse, Acompanhamento>().ReverseMap();
+            CreateMap<AcompanhamentoRequest, Acompanhamento>().ReverseMap();
         }
     }
 }
