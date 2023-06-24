@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using modelo.Application.Models.PedidoModel;
 using modelo.Application.Models.ProdutoModel;
 using modelo.Application.UseCases;
 using System;

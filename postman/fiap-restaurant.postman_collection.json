@@ -1,0 +1,367 @@
+{
+	"info": {
+		"_postman_id": "e522bcf9-1c6a-4765-8a31-bccb17d4ebba",
+		"name": "fiap-restaurant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2862475"
+	},
+	"item": [
+		{
+			"name": "01 - Cliente",
+			"item": [
+				{
+					"name": "1 - Cadastro de Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Rodrigo Cezar\",\r\n  \"cpf\": \"34450347889\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/Cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Obter todos os clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/Cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Obter cliente por CPF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/Cliente/Cpf?Cpf=34450347889",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Cliente",
+								"Cpf"
+							],
+							"query": [
+								{
+									"key": "Cpf",
+									"value": "34450347889"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Deletar um cliente pelo ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/Cliente/id?Id=2e37e24e-ce8a-4fbd-bd80-221b0756d4fa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Cliente",
+								"id"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "2e37e24e-ce8a-4fbd-bd80-221b0756d4fa"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "02 - Categoria",
+			"item": [
+				{
+					"name": "1 - Obter todas as categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/Categoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Categoria"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "03 - Produto",
+			"item": [
+				{
+					"name": "1 - Cadastrar um produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Produto Lanche teste 2\",\r\n  \"valor\": 11.57,\r\n  \"categoriaId\": \"ada751db-8553-493f-b308-70bd29aed106\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/Produto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Obter todos os produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/Produto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Obter produto por categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/Produto/CategoriaId?CategoriaId=ada751db-8553-493f-b308-70bd29aed106",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Produto",
+								"CategoriaId"
+							],
+							"query": [
+								{
+									"key": "CategoriaId",
+									"value": "ada751db-8553-493f-b308-70bd29aed106"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Atualizar um produto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"c838513f-fc67-4a7a-9004-b7f6f5dd4a5a\",\r\n  \"nome\": \"Produto Lanche teste 3\",\r\n  \"valor\": 11.25,\r\n  \"categoriaId\": \"ada751db-8553-493f-b308-70bd29aed106\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/Produto/Id?Id=c838513f-fc67-4a7a-9004-b7f6f5dd4a5a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Produto",
+								"Id"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "c838513f-fc67-4a7a-9004-b7f6f5dd4a5a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5 - Deletar um produto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/Produto/id?Id=c838513f-fc67-4a7a-9004-b7f6f5dd4a5a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Produto",
+								"id"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "c838513f-fc67-4a7a-9004-b7f6f5dd4a5a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "04 - Pedido",
+			"item": [
+				{
+					"name": "1 - Cadastrar um pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"pedido\":[\r\n\r\n    {\r\n        \"categoriaId\": \"32f0c5f0-d9ba-40e2-8d7a-57eed4727e2b\",\r\n        \"produto\": [\r\n            {\r\n                \"produtoId\": \"02b8b0f1-ec86-4e8a-984c-4468615e9c30\"\r\n            },\r\n            {\r\n                \"produtoId\": \"043a99da-38a6-4f4c-90c9-61a71090ad46\"\r\n            }\r\n        ]\r\n      },\r\n      {\r\n        \"categoriaId\": \"5117243c-b007-49e8-9a30-842ec79248ae\",\r\n        \"produto\": [\r\n            {\r\n                \"produtoId\": \"0337ef04-29aa-4590-aaf0-e77733cacc76\"\r\n            },\r\n            {\r\n                \"produtoId\": \"351a0ed7-2dcb-410b-825d-4b8d2245ba58\"\r\n            }\r\n\r\n        ]\r\n      },\r\n      {\r\n        \"categoriaId\": \"cf412102-35da-43d8-9c3c-b72546104c72\",\r\n        \"produto\": [\r\n            {\r\n                \"produtoId\": \"2b19f2ea-9c2e-40f6-a6b1-cd0acba5aaac\"\r\n            }\r\n\r\n        ]\r\n      }                             \r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/Pedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Obter todos os pedidos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/Pedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Obter pedido por senha",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Deletar um item do pedido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/Pedido/id?Id=fd916957-d5fc-416c-1cec-08db73fa2818",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Pedido",
+								"id"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "fd916957-d5fc-416c-1cec-08db73fa2818"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "05 - Acompanhamento do Pedido",
+			"item": []
+		}
+	]
+}

@@ -2,10 +2,12 @@
 using Microsoft.Extensions.DependencyInjection;
 using modelo.Application.Models.CategoriaModel;
 using modelo.Application.Models.ClienteModel;
+using modelo.Application.Models.PedidoModel;
 using modelo.Application.Models.ProdutoModel;
 using modelo.Application.UseCases;
 using modelo.Application.UseCases.CategoriaUseCase;
 using modelo.Application.UseCases.ClienteUseCase;
+using modelo.Application.UseCases.PedidoUseCase;
 using modelo.Application.UseCases.ProdutoUseCase;
 using modelo.Domain.Gateways;
 using modelo.Infrastructure.DataProviders;
@@ -33,6 +35,14 @@ namespace modelo.Infrastructure.Extensions
             services.AddTransient<IUseCaseAsync<ProdutoPostRequest>, PostProdutoUseCaseAsync>();
             services.AddTransient<IUseCaseAsync<ProdutoPutRequest>, PutProdutoUseCaseAsync>();
             services.AddTransient<IUseCaseAsync<ProdutoDeleteRequest>, DeleteProdutoUseCaseAsync>();
+
+            services.AddTransient<IUseCaseIEnumerableAsync<IEnumerable<PedidoDetalhadoResponse>>, GetAllPedidoUseCaseAsync>();
+            services.AddTransient<IUseCaseIEnumerableAsync<PedidoRequest, PedidoDetalhadoPorSenhaResponse>, GetPedidoBySenhaUseCaseAsync>();
+            services.AddTransient<IUseCaseAsync<PedidoPostRequest>, PostPedidoUseCaseAsync>();
+            services.AddTransient<IUseCaseAsync<PedidoDeleteRequest>, DeletePedidoUseCaseAsync>();
+
+
+
         }
 
         private static void AddRepositories(IServiceCollection services)
@@ -40,6 +50,7 @@ namespace modelo.Infrastructure.Extensions
             services.AddTransient<IClienteGateway, ClienteRepository>();
             services.AddTransient<ICategoriaGateway, CategoriaRepository>();
             services.AddTransient<IProdutoGateway, ProdutoRepository>();
+            services.AddTransient<IPedidoGateway, PedidoRepository>();
         }
 
         private static void AddOthers(IServiceCollection services)

@@ -13,6 +13,8 @@ namespace modelo.Infrastructure.DataProviders
 
         public DbSet<Produto> Produto { get; set; }
 
+        public DbSet<Pedido> Pedido { get; set; }
+
         public DBContext(DbContextOptions<DBContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -25,6 +27,8 @@ namespace modelo.Infrastructure.DataProviders
             modelBuilder.ApplyConfiguration(new CategoriaEntityConfiguration());
 
             modelBuilder.ApplyConfiguration(new ProdutoEntityConfiguration());
+
+            modelBuilder.ApplyConfiguration(new PedidoEntityConfiguration());
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(DbContext).Assembly);
 

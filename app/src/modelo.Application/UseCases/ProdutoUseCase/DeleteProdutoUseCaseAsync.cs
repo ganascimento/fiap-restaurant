@@ -2,6 +2,7 @@
 using AutoMapper;
 using modelo.Domain.Gateways;
 using modelo.Application.Models.ProdutoModel;
+using modelo.Application.Models.PedidoModel;
 
 namespace modelo.Application.UseCases.ProdutoUseCase
 {

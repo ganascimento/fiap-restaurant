@@ -26,7 +26,7 @@ namespace modelo.Domain.Entities
         public string Nome { get; private set; }
 
         public List<Produto> Produtos { get; set; }
-
+       
         private void ValidateEntity()
         {
             AssertionConcern.AssertArgumentNotNull(Id, "O Id não pode estar vazio!");
