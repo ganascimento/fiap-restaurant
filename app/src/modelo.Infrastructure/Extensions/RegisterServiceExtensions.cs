@@ -4,11 +4,13 @@ using modelo.Application.Models.CategoriaModel;
 using modelo.Application.Models.ClienteModel;
 using modelo.Application.Models.PedidoModel;
 using modelo.Application.Models.ProdutoModel;
+using modelo.Application.Models.AcompanhamentoModel;
 using modelo.Application.UseCases;
 using modelo.Application.UseCases.CategoriaUseCase;
 using modelo.Application.UseCases.ClienteUseCase;
 using modelo.Application.UseCases.PedidoUseCase;
 using modelo.Application.UseCases.ProdutoUseCase;
+using modelo.Application.UseCases.AcompanhamentoUseCase;
 using modelo.Domain.Gateways;
 using modelo.Infrastructure.DataProviders;
 using modelo.Infrastructure.DataProviders.Repositories;
@@ -41,8 +43,7 @@ namespace modelo.Infrastructure.Extensions
             services.AddTransient<IUseCaseAsync<PedidoPostRequest>, PostPedidoUseCaseAsync>();
             services.AddTransient<IUseCaseAsync<PedidoDeleteRequest>, DeletePedidoUseCaseAsync>();
 
-
-
+            services.AddTransient<IUseCaseAsync<AcompanhamentoRequest, AcompanhamentoResponse>, GetAcompanhamentoBySenhaUseCaseAsync>();
         }
 
         private static void AddRepositories(IServiceCollection services)
@@ -51,6 +52,7 @@ namespace modelo.Infrastructure.Extensions
             services.AddTransient<ICategoriaGateway, CategoriaRepository>();
             services.AddTransient<IProdutoGateway, ProdutoRepository>();
             services.AddTransient<IPedidoGateway, PedidoRepository>();
+            services.AddTransient<IAcompanhamentoGateway, AcompanhamentoRepository>();
         }
 
         private static void AddOthers(IServiceCollection services)

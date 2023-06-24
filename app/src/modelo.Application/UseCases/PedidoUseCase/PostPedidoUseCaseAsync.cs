@@ -5,18 +5,21 @@ using modelo.Domain.Entities;
 using modelo.Application.Models.ClienteModel;
 using modelo.Application.Models.PedidoModel;
 using System.Linq;
+using modelo.Domain.Enums;
 
 namespace modelo.Application.UseCases.PedidoUseCase
 {
     public class PostPedidoUseCaseAsync : IUseCaseAsync<PedidoPostRequest>
     {
         private readonly IPedidoGateway _pedidoGateway;
+        private readonly IAcompanhamentoGateway _AcompanhamentoGateway;
         private readonly IMapper _mapper;
 
-        public PostPedidoUseCaseAsync(IPedidoGateway pedidoGateway, IMapper mapper)
+        public PostPedidoUseCaseAsync(IPedidoGateway pedidoGateway, IMapper mapper, IAcompanhamentoGateway acompanhamentoGateway)
         {
             _pedidoGateway = pedidoGateway;
             _mapper = mapper;
+            _AcompanhamentoGateway = acompanhamentoGateway;
         }
 
         public async Task ExecuteAsync(PedidoPostRequest request)
@@ -49,6 +52,11 @@ namespace modelo.Application.UseCases.PedidoUseCase
                         _pedidoGateway.Insert(insert);
                     });
                 });
+
+                Acompanhamento acompanhamento = new Acompanhamento();
+                acompanhamento.Senha = senha;
+                acompanhamento.Status = Status.Pendente.Id;
+                _AcompanhamentoGateway.Insert(acompanhamento);
             }                      
         }
     }
