@@ -8,7 +8,7 @@ namespace modelo.Application.Models.AcompanhamentoModel
     {
         public AcompanhamentoPutRequest()
         {
-            Status Status = Status.Pendente;
+            Status Status;
         }
 
         [JsonIgnore]
