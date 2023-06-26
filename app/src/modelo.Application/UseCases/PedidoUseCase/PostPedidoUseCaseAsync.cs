@@ -55,7 +55,7 @@ namespace modelo.Application.UseCases.PedidoUseCase
 
                 Acompanhamento acompanhamento = new Acompanhamento();
                 acompanhamento.Senha = senha;
-                acompanhamento.Status = Status.Pendente.Id;
+                acompanhamento.Status = (int)Status.Pendente;
                 _AcompanhamentoGateway.Insert(acompanhamento);
             }                      
         }
