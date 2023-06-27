@@ -28,6 +28,7 @@ namespace modelo.Application.Mappers
 
             CreateMap<AcompanhamentoResponse, Acompanhamento>().ReverseMap();
             CreateMap<AcompanhamentoRequest, Acompanhamento>().ReverseMap();
+            CreateMap<AcompanhamentoPutRequest, Acompanhamento>().ReverseMap();
         }
     }
 }

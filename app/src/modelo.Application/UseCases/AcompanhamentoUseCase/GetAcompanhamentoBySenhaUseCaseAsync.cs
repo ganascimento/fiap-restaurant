@@ -25,7 +25,7 @@ namespace modelo.Application.UseCases.AcompanhamentoUseCase
             return new AcompanhamentoResponse
             {
                 Senha = result.Senha,
-                Status = Status.GetById(result.Status)
+                Status = (Status)Enum.Parse(typeof(Status), result.Status.ToString())
             };
         }
     }

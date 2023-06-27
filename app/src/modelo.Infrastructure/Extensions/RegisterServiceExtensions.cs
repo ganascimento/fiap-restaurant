@@ -44,6 +44,7 @@ namespace modelo.Infrastructure.Extensions
             services.AddTransient<IUseCaseAsync<PedidoDeleteRequest>, DeletePedidoUseCaseAsync>();
 
             services.AddTransient<IUseCaseAsync<AcompanhamentoRequest, AcompanhamentoResponse>, GetAcompanhamentoBySenhaUseCaseAsync>();
+            services.AddTransient<IUseCaseAsync<AcompanhamentoPutRequest>, PutAcompanhamentoUseCaseAsync>();
         }
 
         private static void AddRepositories(IServiceCollection services)
