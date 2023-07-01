@@ -14,6 +14,7 @@ namespace modelo.Infrastructure.DataProviders
         public DbSet<Produto> Produto { get; set; }
 
         public DbSet<Pedido> Pedido { get; set; }
+
         public DbSet<Acompanhamento> Acompanhamento { get; set; }
 
         public DBContext(DbContextOptions<DBContext> options) : base(options) { }

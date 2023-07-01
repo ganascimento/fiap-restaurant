@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace modelo.Application.Models.ClienteModel
@@ -10,7 +10,7 @@ namespace modelo.Application.Models.ClienteModel
             Id = Guid.Empty;
         }
 
-        [JsonProperty("Id")]
+        [FromRoute]
         public Guid Id { get; set; }
     }
 }

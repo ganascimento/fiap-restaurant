@@ -5,8 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Enums\" />
-    <Folder Include="Exceptions\" />
+    <Compile Remove="Exceptions\NovaPasta\**" />
+    <Compile Remove="Gateways\NovaPasta\**" />
+    <EmbeddedResource Remove="Exceptions\NovaPasta\**" />
+    <EmbeddedResource Remove="Gateways\NovaPasta\**" />
+    <None Remove="Exceptions\NovaPasta\**" />
+    <None Remove="Gateways\NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="ValueObjects\" />
     <Folder Include="Services\" />
   </ItemGroup>

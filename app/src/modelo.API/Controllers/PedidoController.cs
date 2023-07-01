@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using modelo.Application.Models.PedidoModel;
-using modelo.Application.Models.ProdutoModel;
 using modelo.Application.UseCases;
 using System;
 using System.Collections.Generic;
@@ -47,7 +46,7 @@ namespace modelo.API.Controllers
         }
 
         [HttpGet("{Senha}")]
-        public async Task<IActionResult> GetPedidoBySenha([FromQuery] PedidoRequest request)
+        public async Task<IActionResult> GetPedidoBySenha([FromRoute] PedidoRequest request)
         {
             var result = await _getBySenhaCase.ExecuteAsync(request);
 
@@ -62,13 +61,20 @@ namespace modelo.API.Controllers
         [HttpPost()]
         public async Task<IActionResult> Post([FromBodyAttribute] PedidoPostRequest request)
         {
-            await _postUseCase.ExecuteAsync(request);
+            try
+            {
+                await _postUseCase.ExecuteAsync(request);
+            } 
+            catch (InvalidOperationException exception)
+            {
+                return BadRequest(exception.Message);
+            }
 
             return Ok();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete([FromQuery] PedidoDeleteRequest request)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute] PedidoDeleteRequest request)
         {
             await _deleteUseCase.ExecuteAsync(request);
 

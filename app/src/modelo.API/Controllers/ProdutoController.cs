@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using modelo.Application.Models.PedidoModel;
 using modelo.Application.Models.ProdutoModel;
 using modelo.Application.UseCases;
 using System;
@@ -50,7 +49,7 @@ namespace modelo.API.Controllers
         }
 
         [HttpGet("{CategoriaId}")]
-        public async Task<IActionResult> GetProdutoByCategoriaId([FromQuery] ProdutoRequest request)
+        public async Task<IActionResult> GetProdutoByCategoriaId([FromRoute] ProdutoRequest request)
         {
             var result = await _getByCategoriauseCase.ExecuteAsync(request);
 
@@ -71,7 +70,7 @@ namespace modelo.API.Controllers
         }
 
         [HttpPut("{Id}")]
-        public async Task<IActionResult> Put([FromQuery] Guid Id, [FromBodyAttribute] ProdutoPutRequest request)
+        public async Task<IActionResult> Put([FromRoute] Guid Id, [FromBodyAttribute] ProdutoPutRequest request)
         {
             request.Id = Id;
 
@@ -80,8 +79,8 @@ namespace modelo.API.Controllers
             return Ok();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete([FromQuery] ProdutoDeleteRequest request)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute] ProdutoDeleteRequest request)
         {
             await _deleteUseCase.ExecuteAsync(request);
 

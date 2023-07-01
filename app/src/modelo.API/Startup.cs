@@ -9,7 +9,6 @@ using modelo.Infrastructure.Extensions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Converters;
-using System;
 
 namespace modelo.API
 {

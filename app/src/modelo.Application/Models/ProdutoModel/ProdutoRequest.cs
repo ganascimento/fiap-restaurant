@@ -10,7 +10,7 @@ namespace modelo.Application.Models.ProdutoModel
             CategoriaId = Guid.Empty;
         }
 
-        [FromQuery(Name = "CategoriaId")]
+        [FromRoute]
         public Guid CategoriaId { get; set; }
     }
 }

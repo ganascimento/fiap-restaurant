@@ -2,28 +2,36 @@
 using AutoMapper;
 using modelo.Domain.Gateways;
 using modelo.Domain.Entities;
-using modelo.Application.Models.ClienteModel;
 using modelo.Application.Models.PedidoModel;
 using System.Linq;
 using modelo.Domain.Enums;
+using modelo.Domain.Gateways.External;
+using modelo.Domain.Entities.Base;
 
 namespace modelo.Application.UseCases.PedidoUseCase
 {
     public class PostPedidoUseCaseAsync : IUseCaseAsync<PedidoPostRequest>
     {
         private readonly IPedidoGateway _pedidoGateway;
+        private readonly IPagamentoGateway _pagamentoGateway;
         private readonly IAcompanhamentoGateway _AcompanhamentoGateway;
         private readonly IMapper _mapper;
 
-        public PostPedidoUseCaseAsync(IPedidoGateway pedidoGateway, IMapper mapper, IAcompanhamentoGateway acompanhamentoGateway)
+        public PostPedidoUseCaseAsync(IPedidoGateway pedidoGateway,  IMapper mapper, IAcompanhamentoGateway acompanhamentoGateway, IPagamentoGateway pagamentoGateway)
         {
             _pedidoGateway = pedidoGateway;
             _mapper = mapper;
             _AcompanhamentoGateway = acompanhamentoGateway;
+            _pagamentoGateway = pagamentoGateway;
         }
 
         public async Task ExecuteAsync(PedidoPostRequest request)
         {
+            AssertionConcern.AssertArgumentTrue(
+                _pagamentoGateway.ValidatePaiment(request.Pagamento.Tipo), 
+                "Pagamento Recusado"
+            );
+
             int senha = 0;
 
             var obj = _pedidoGateway.GetAllAsync();
@@ -32,8 +40,6 @@ namespace modelo.Application.UseCases.PedidoUseCase
             {
                senha = obj.Result.ToList().MaxBy(max => max.Senha).Senha;
             }
-
-            //var insert = _mapper.Map<PedidoPostRequest, Pedido>(request);
 
             senha = senha + 1;
 
