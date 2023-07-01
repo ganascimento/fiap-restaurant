@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using modelo.Application.Models.PedidoModel;
 using modelo.Application.UseCases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -60,7 +61,14 @@ namespace modelo.API.Controllers
         [HttpPost()]
         public async Task<IActionResult> Post([FromBodyAttribute] PedidoPostRequest request)
         {
-            await _postUseCase.ExecuteAsync(request);
+            try
+            {
+                await _postUseCase.ExecuteAsync(request);
+            } 
+            catch (InvalidOperationException exception)
+            {
+                return BadRequest(exception.Message);
+            }
 
             return Ok();
         }

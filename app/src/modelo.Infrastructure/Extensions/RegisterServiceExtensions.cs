@@ -14,6 +14,8 @@ using modelo.Application.UseCases.AcompanhamentoUseCase;
 using modelo.Domain.Gateways;
 using modelo.Infrastructure.DataProviders;
 using modelo.Infrastructure.DataProviders.Repositories;
+using modelo.Domain.Gateways.External;
+using modelo.Infrastructure.DataProviders.Repositories.External;
 
 namespace modelo.Infrastructure.Extensions
 {
@@ -54,6 +56,7 @@ namespace modelo.Infrastructure.Extensions
             services.AddTransient<IProdutoGateway, ProdutoRepository>();
             services.AddTransient<IPedidoGateway, PedidoRepository>();
             services.AddTransient<IAcompanhamentoGateway, AcompanhamentoRepository>();
+            services.AddTransient<IPagamentoGateway, PagamentoRepository>();
         }
 
         private static void AddOthers(IServiceCollection services)

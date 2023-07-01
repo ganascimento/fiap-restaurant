@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace modelo.Domain.Entities.Enums
+namespace modelo.Domain.Enums
 {
-    public enum Status
+    public enum TipoPagamento
     {
-        Pendente,
-        EmPreparo,
-        Pronto,
-        Entregue
+        Pix,
+        Cartao
     }
 }

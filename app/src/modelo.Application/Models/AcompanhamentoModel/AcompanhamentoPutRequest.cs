@@ -1,4 +1,4 @@
-﻿using modelo.Domain.Entities.Enums;
+﻿using modelo.Domain.Enums;
 using Newtonsoft.Json;
 using System;
 

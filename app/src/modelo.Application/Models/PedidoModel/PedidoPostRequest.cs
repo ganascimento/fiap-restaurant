@@ -10,6 +10,9 @@ namespace modelo.Application.Models.PedidoModel
     {
         [JsonProperty("pedido")]
         public List<PedidoDto> Pedido { get; set; }
+
+        [JsonProperty("Pagamento")]
+        public PagamentoDto Pagamento { get; set; }
     
     }
 }
