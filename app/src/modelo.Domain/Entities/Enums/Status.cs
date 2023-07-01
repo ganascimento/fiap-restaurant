@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace modelo.Domain.Enums
+namespace modelo.Domain.Entities.Enums
 {
     public enum Status
     {

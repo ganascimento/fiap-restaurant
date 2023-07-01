@@ -1,4 +1,4 @@
-﻿using modelo.Domain.Enums;
+﻿using modelo.Domain.Entities.Enums;
 using Newtonsoft.Json;
 
 namespace modelo.Application.Models.AcompanhamentoModel

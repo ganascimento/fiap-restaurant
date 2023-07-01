@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using modelo.Domain.Gateways;
 using modelo.Application.Models.AcompanhamentoModel;
-using modelo.Domain.Enums;
+using modelo.Domain.Entities.Enums;
 
 namespace modelo.Application.UseCases.AcompanhamentoUseCase
 {

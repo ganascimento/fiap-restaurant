@@ -5,7 +5,7 @@ using modelo.Domain.Entities;
 using modelo.Application.Models.ClienteModel;
 using modelo.Application.Models.PedidoModel;
 using System.Linq;
-using modelo.Domain.Enums;
+using modelo.Domain.Entities.Enums;
 
 namespace modelo.Application.UseCases.PedidoUseCase
 {
