@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace modelo.Application.Models.PedidoModel
 {
@@ -10,7 +9,7 @@ namespace modelo.Application.Models.PedidoModel
             Senha = 0;
         }
 
-        [FromQuery(Name = "Senha")]
+        [FromRoute]
         public int Senha { get; set; }
     }
 }

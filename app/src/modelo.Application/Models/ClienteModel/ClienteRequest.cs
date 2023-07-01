@@ -9,7 +9,7 @@ namespace modelo.Application.Models.ClienteModel
             Cpf = string.Empty;
         }
 
-        [FromQuery(Name = "Cpf")]
+        [FromRoute]
         public string Cpf { get; set; }
     }
 }

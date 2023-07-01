@@ -45,7 +45,7 @@ namespace modelo.API.Controllers
         }
 
         [HttpGet("{Cpf}")]
-        public async Task<IActionResult> ClienteByCPFAsync([FromQuery] ClienteRequest clienteResquest)
+        public async Task<IActionResult> ClienteByCPFAsync([FromRoute] ClienteRequest clienteResquest)
         {
             var result = await _getByCPFUseCase.ExecuteAsync(clienteResquest);
 
@@ -65,8 +65,8 @@ namespace modelo.API.Controllers
             return Ok();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete([FromQuery] ClienteDeleteRequest request)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute] ClienteDeleteRequest request)
         {
             await _deleteUseCase.ExecuteAsync(request);
 

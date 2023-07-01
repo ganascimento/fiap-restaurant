@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using modelo.Application.Models.PedidoModel;
-using modelo.Application.Models.ProdutoModel;
 using modelo.Application.UseCases;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -47,7 +45,7 @@ namespace modelo.API.Controllers
         }
 
         [HttpGet("{Senha}")]
-        public async Task<IActionResult> GetPedidoBySenha([FromQuery] PedidoRequest request)
+        public async Task<IActionResult> GetPedidoBySenha([FromRoute] PedidoRequest request)
         {
             var result = await _getBySenhaCase.ExecuteAsync(request);
 
@@ -67,8 +65,8 @@ namespace modelo.API.Controllers
             return Ok();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete([FromQuery] PedidoDeleteRequest request)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute] PedidoDeleteRequest request)
         {
             await _deleteUseCase.ExecuteAsync(request);
 
