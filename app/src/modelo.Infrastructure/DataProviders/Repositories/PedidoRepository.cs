@@ -32,6 +32,7 @@ namespace modelo.Infrastructure.DataProviders.Repositories
 
             select new PedidoDetalhadoDto
             {
+                Id = pedido.Id,
                 Senha = pedido.Senha,
                 CategoriaNome = categoria.Nome,
                 ProdutoNome = produto.Nome,
@@ -50,6 +51,7 @@ namespace modelo.Infrastructure.DataProviders.Repositories
 
             select new PedidoDetalhadoDto
             {
+                Id = pedido.Id,
                 Senha = pedido.Senha,
                 CategoriaNome = categoria.Nome,
                 ProdutoNome = produto.Nome,

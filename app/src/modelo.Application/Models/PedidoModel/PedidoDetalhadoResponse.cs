@@ -7,6 +7,8 @@ namespace modelo.Application.Models.PedidoModel
 {
     public class PedidoDetalhadoResponse
     {
+        [JsonProperty("Id")]
+        public Guid Id { get; set; }
       
         [JsonProperty("Senha")]
         public int Senha { get; set; }
