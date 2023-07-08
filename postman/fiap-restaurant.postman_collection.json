@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "e522bcf9-1c6a-4765-8a31-bccb17d4ebba",
+		"_postman_id": "3b9b5059-00da-4d9a-bc41-67bc113e584b",
 		"name": "fiap-restaurant",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "2862475"
+		"_exporter_id": "23312248"
 	},
 	"item": [
 		{
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Rodrigo Cezar\",\r\n  \"cpf\": \"34450347889\"\r\n}",
+							"raw": "{\r\n  \"nome\": \"{{CLIENTE_NOME}}\",\r\n  \"cpf\": \"{{CLIENTE_CPF}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24,12 +24,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5001/Cliente",
-							"protocol": "http",
+							"raw": "{{URL}}/Cliente",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"Cliente"
 							]
@@ -43,12 +41,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5001/Cliente",
-							"protocol": "http",
+							"raw": "{{URL}}/Cliente",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"Cliente"
 							]
@@ -62,21 +58,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5001/Cliente/Cpf?Cpf=34450347889",
-							"protocol": "http",
+							"raw": "{{URL}}/Cliente/{{CLIENTE_CPF}}",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"Cliente",
-								"Cpf"
-							],
-							"query": [
-								{
-									"key": "Cpf",
-									"value": "34450347889"
-								}
+								"{{CLIENTE_CPF}}"
 							]
 						}
 					},
@@ -88,21 +76,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5001/Cliente/id?Id=2e37e24e-ce8a-4fbd-bd80-221b0756d4fa",
-							"protocol": "http",
+							"raw": "{{URL}}/Cliente/{{CLIENTE_ID}}",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"Cliente",
-								"id"
-							],
-							"query": [
-								{
-									"key": "Id",
-									"value": "2e37e24e-ce8a-4fbd-bd80-221b0756d4fa"
-								}
+								"{{CLIENTE_ID}}"
 							]
 						}
 					},
@@ -119,12 +99,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5001/Categoria",
-							"protocol": "http",
+							"raw": "{{URL}}/Categoria",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"Categoria"
 							]
@@ -144,7 +122,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Produto Lanche teste 2\",\r\n  \"valor\": 11.57,\r\n  \"categoriaId\": \"ada751db-8553-493f-b308-70bd29aed106\"\r\n}",
+							"raw": "{\r\n  \"nome\": \"Produto Lanche teste 2\",\r\n  \"valor\": 11.57,\r\n  \"categoriaId\": \"{{CATEGORIA_LANCHE_ID}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -152,12 +130,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5001/Produto",
-							"protocol": "http",
+							"raw": "{{URL}}/Produto",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"Produto"
 							]
@@ -171,12 +147,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5001/Produto",
-							"protocol": "http",
+							"raw": "{{URL}}/Produto",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"Produto"
 							]
@@ -185,26 +159,18 @@
 					"response": []
 				},
 				{
-					"name": "3 - Obter produto por categoria",
+					"name": "3 - Obter produtos por categoria",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5001/Produto/CategoriaId?CategoriaId=ada751db-8553-493f-b308-70bd29aed106",
-							"protocol": "http",
+							"raw": "{{URL}}/Produto/{{CATEGORIA_LANCHE_ID}}",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"Produto",
-								"CategoriaId"
-							],
-							"query": [
-								{
-									"key": "CategoriaId",
-									"value": "ada751db-8553-493f-b308-70bd29aed106"
-								}
+								"{{CATEGORIA_LANCHE_ID}}"
 							]
 						}
 					},
@@ -217,7 +183,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": \"c838513f-fc67-4a7a-9004-b7f6f5dd4a5a\",\r\n  \"nome\": \"Produto Lanche teste 3\",\r\n  \"valor\": 11.25,\r\n  \"categoriaId\": \"ada751db-8553-493f-b308-70bd29aed106\"\r\n}\r\n",
+							"raw": "{\r\n  \"nome\": \"Chesseburguer atualizado\",\r\n  \"valor\": 11.25,\r\n  \"categoriaId\": \"{{CATEGORIA_LANCHE_ID}}\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -225,21 +191,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5001/Produto/Id?Id=c838513f-fc67-4a7a-9004-b7f6f5dd4a5a",
-							"protocol": "http",
+							"raw": "{{URL}}/Produto/{{CHESSEBURGUER_ID}}",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"Produto",
-								"Id"
-							],
-							"query": [
-								{
-									"key": "Id",
-									"value": "c838513f-fc67-4a7a-9004-b7f6f5dd4a5a"
-								}
+								"{{CHESSEBURGUER_ID}}"
 							]
 						}
 					},
@@ -251,21 +209,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5001/Produto/id?Id=c838513f-fc67-4a7a-9004-b7f6f5dd4a5a",
-							"protocol": "http",
+							"raw": "{{URL}}/Produto/{{X_SALADA_ID}}",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"Produto",
-								"id"
-							],
-							"query": [
-								{
-									"key": "Id",
-									"value": "c838513f-fc67-4a7a-9004-b7f6f5dd4a5a"
-								}
+								"{{X_SALADA_ID}}"
 							]
 						}
 					},
@@ -283,7 +233,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"pedido\":[\r\n\r\n    {\r\n        \"categoriaId\": \"32f0c5f0-d9ba-40e2-8d7a-57eed4727e2b\",\r\n        \"produto\": [\r\n            {\r\n                \"produtoId\": \"02b8b0f1-ec86-4e8a-984c-4468615e9c30\"\r\n            },\r\n            {\r\n                \"produtoId\": \"043a99da-38a6-4f4c-90c9-61a71090ad46\"\r\n            }\r\n        ]\r\n      },\r\n      {\r\n        \"categoriaId\": \"5117243c-b007-49e8-9a30-842ec79248ae\",\r\n        \"produto\": [\r\n            {\r\n                \"produtoId\": \"0337ef04-29aa-4590-aaf0-e77733cacc76\"\r\n            },\r\n            {\r\n                \"produtoId\": \"351a0ed7-2dcb-410b-825d-4b8d2245ba58\"\r\n            }\r\n\r\n        ]\r\n      },\r\n      {\r\n        \"categoriaId\": \"cf412102-35da-43d8-9c3c-b72546104c72\",\r\n        \"produto\": [\r\n            {\r\n                \"produtoId\": \"2b19f2ea-9c2e-40f6-a6b1-cd0acba5aaac\"\r\n            }\r\n\r\n        ]\r\n      }                             \r\n    ]\r\n}",
+							"raw": "{\r\n    \"pagamento\": {\r\n        \"tipo\": \"{{PAGAMENTO_PIX}}\"\r\n    },\r\n    \"pedido\": [\r\n        {\r\n            \"categoriaId\": \"{{CATEGORIA_LANCHE_ID}}\",\r\n            \"produto\": [\r\n                {\r\n                    \"produtoId\": \"{{CHESSEBURGUER_ID}}\"\r\n                },\r\n                {\r\n                    \"produtoId\": \"{{CHESSEBURGUER_ID}}\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"categoriaId\": \"{{CATEGORIA_ACOMPANHAMENTO_ID}}\",\r\n            \"produto\": [\r\n                {\r\n                    \"produtoId\": \"{{BATATA_FRITA_G_ID}}\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"categoriaId\": \"{{CATEGORIA_BEBIDA_ID}}\",\r\n            \"produto\": [\r\n                {\r\n                    \"produtoId\": \"{{COCA_COLA_P_ID}}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -291,12 +241,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5001/Pedido",
-							"protocol": "http",
+							"raw": "{{URL}}/Pedido",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"Pedido"
 							]
@@ -310,12 +258,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5001/Pedido",
-							"protocol": "http",
+							"raw": "{{URL}}/Pedido",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"Pedido"
 							]
@@ -327,7 +273,17 @@
 					"name": "3 - Obter pedido por senha",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Pedido/{{SENHA}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Pedido",
+								"{{SENHA}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -337,21 +293,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5001/Pedido/id?Id=fd916957-d5fc-416c-1cec-08db73fa2818",
-							"protocol": "http",
+							"raw": "{{URL}}/Pedido/{{PEDIDO_ID}}",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"Pedido",
-								"id"
-							],
-							"query": [
-								{
-									"key": "Id",
-									"value": "fd916957-d5fc-416c-1cec-08db73fa2818"
-								}
+								"{{PEDIDO_ID}}"
 							]
 						}
 					},
@@ -361,7 +309,278 @@
 		},
 		{
 			"name": "05 - Acompanhamento do Pedido",
-			"item": []
+			"item": [
+				{
+					"name": "Obter Acompanhamento do pedido Pela Senha",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Acompanhamento/{{SENHA}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Acompanhamento",
+								"{{SENHA}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Status do Acompanhamento de pedido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Status\": \"{{STATUS_PRONTO}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/Acompanhamento/{{ACOMPANHAMENTO_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Acompanhamento",
+								"{{ACOMPANHAMENTO_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:5001",
+			"type": "string"
+		},
+		{
+			"key": "CLIENTE_NOME",
+			"value": "LOREM IPSUM",
+			"type": "string"
+		},
+		{
+			"key": "CLIENTE_CPF",
+			"value": "73825594084",
+			"type": "string"
+		},
+		{
+			"key": "CLIENTE_ID",
+			"value": "aadfc2f4-3b68-4af8-bbda-31e61284603f",
+			"type": "string"
+		},
+		{
+			"key": "ACOMPANHAMENTO_ID",
+			"value": "ef41f7d6-56df-46b1-e245-08db7fc912da"
+		},
+		{
+			"key": "SENHA",
+			"value": "1"
+		},
+		{
+			"key": "PEDIDO_ID",
+			"value": "fa120121-1efa-4ae8-39ea-08db7fc912ce",
+			"type": "string"
+		},
+		{
+			"key": "FORMAS DE PAGAMENTO ------------------------------",
+			"value": "------------------------------------------------------------------------------------",
+			"type": "string"
+		},
+		{
+			"key": "PAGAMENTO_PIX",
+			"value": "Pix",
+			"type": "string"
+		},
+		{
+			"key": "PAGAMENTO_CARTAO",
+			"value": "Cartao",
+			"type": "string"
+		},
+		{
+			"key": "STATUS DE ACOMPANHAMENTO",
+			"value": "------------------------------------------------------------------------------------",
+			"type": "string"
+		},
+		{
+			"key": "STATUS_PENDENTE",
+			"value": "Pendente",
+			"type": "string"
+		},
+		{
+			"key": "STATUS_EM_PREPARO",
+			"value": "EmPreparo",
+			"type": "string"
+		},
+		{
+			"key": "STATUS_PRONTO",
+			"value": "Pronto",
+			"type": "string"
+		},
+		{
+			"key": "STATUS_ENTREGUE",
+			"value": "Entregue",
+			"type": "string"
+		},
+		{
+			"key": "CATEGORIAS-------------------------------------",
+			"value": "------------------------------------------------------------------------------------",
+			"type": "string"
+		},
+		{
+			"key": "CATEGORIA_LANCHE_ID",
+			"value": "ada751db-8553-493f-b308-70bd29aed106",
+			"type": "string"
+		},
+		{
+			"key": "CATEGORIA_SOBREMESA_ID",
+			"value": "32f0c5f0-d9ba-40e2-8d7a-57eed4727e2b",
+			"type": "string"
+		},
+		{
+			"key": "CATEGORIA_BEBIDA_ID",
+			"value": "5117243c-b007-49e8-9a30-842ec79248ae",
+			"type": "string"
+		},
+		{
+			"key": "CATEGORIA_ACOMPANHAMENTO_ID",
+			"value": "cf412102-35da-43d8-9c3c-b72546104c72",
+			"type": "string"
+		},
+		{
+			"key": "PRODUTOS -------------------------------------------------------------",
+			"value": "------------------------------------------------------------------------------------",
+			"type": "string"
+		},
+		{
+			"key": "BATATA_FRITA_G_ID",
+			"value": "71b67582-3371-4fc9-8139-b1fa218d8aab",
+			"type": "string"
+		},
+		{
+			"key": "BATATA_FRITA_M_ID",
+			"value": "2648e622-6e02-4f55-a7af-ee7e752394ab",
+			"type": "string"
+		},
+		{
+			"key": "BATATA_FRITA_P_ID",
+			"value": "42e082ba-8785-4673-8836-9abb62f1d7ee",
+			"type": "string"
+		},
+		{
+			"key": "CHESSEBURGUER_ID",
+			"value": "679ae00f-ccda-449b-83dc-21158d1c1c94",
+			"type": "string"
+		},
+		{
+			"key": "NUGGETS_12_ID",
+			"value": "df53ad6a-0e12-4e1b-9806-234ac6c963bd",
+			"type": "string"
+		},
+		{
+			"key": "NUGGETS_4_ID",
+			"value": "9b0666a7-7264-4d28-a61e-364cdfb3c4da",
+			"type": "string"
+		},
+		{
+			"key": "NUGGETS_8_ID",
+			"value": "ac0d32a1-763e-4039-bf31-2b75ef188089",
+			"type": "string"
+		},
+		{
+			"key": "COCA_COLA_G_ID",
+			"value": "9b0bc2b8-8361-4203-9f51-f12c1aafafff",
+			"type": "string"
+		},
+		{
+			"key": "COCA_COLA_M_ID",
+			"value": "d6dcd390-bd61-4cee-a118-f72a1d793eb4",
+			"type": "string"
+		},
+		{
+			"key": "COCA_COLA_P_ID",
+			"value": "34a143b3-6b13-4852-ab88-24b33e59164c",
+			"type": "string"
+		},
+		{
+			"key": "HAMBURGUER_ID",
+			"value": "72c6cae0-1e9d-470a-bc6b-ab369213cdb7",
+			"type": "string"
+		},
+		{
+			"key": "SORVETE_BAUNILHA_ID",
+			"value": "7d826626-9076-4ec4-b8dd-e13e1985a139",
+			"type": "string"
+		},
+		{
+			"key": "SORVETE_CHOCOLATE_ID",
+			"value": "f3dd62f0-992c-4d8c-ae10-623ccef9eab5",
+			"type": "string"
+		},
+		{
+			"key": "SORVETE_MISTO_ID",
+			"value": "d7a6c31a-2648-487e-a9d0-194138a143d2",
+			"type": "string"
+		},
+		{
+			"key": "SUNDAE_BAUNILHA_ID",
+			"value": "65ed6f56-e0fb-412f-ae8f-f0a9de8e0d64",
+			"type": "string"
+		},
+		{
+			"key": "SUNDAE_CHOCOLATE_ID",
+			"value": "8f76b2dd-887b-4c4d-a907-fd05cc7c2de1",
+			"type": "string"
+		},
+		{
+			"key": "SUNDAE_MISTO_ID",
+			"value": "4edc8734-e410-41a3-a2a1-675abcef99cd",
+			"type": "string"
+		},
+		{
+			"key": "X_BACON_ID",
+			"value": "d805d566-f3e0-4f1d-aff7-7be281304bcd",
+			"type": "string"
+		},
+		{
+			"key": "X_SALADA_ID",
+			"value": "ec172d88-582a-4707-9cbc-af51e4c00698",
+			"type": "string"
+		},
+		{
+			"key": "X_TUDO_ID",
+			"value": "c90b8cbf-17b8-4ad5-9087-0c1201ce2460",
+			"type": "string"
 		}
 	]
 }
