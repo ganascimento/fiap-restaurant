@@ -15,13 +15,12 @@ namespace modelo.Infrastructure.DataProviders
 
         public DbSet<Pedido> Pedido { get; set; }
 
-        public DbSet<Acompanhamento> Acompanhamento { get; set; }
+        public DbSet<ItemPedido> ItemPedido { get; set; }
 
         public DBContext(DbContextOptions<DBContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new ClienteEntityConfiguration());
@@ -32,7 +31,9 @@ namespace modelo.Infrastructure.DataProviders
 
             modelBuilder.ApplyConfiguration(new PedidoEntityConfiguration());
 
-            modelBuilder.ApplyConfiguration(new AcompanhamentoEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ItemPedidoEntityConfiguration());
+
+            modelBuilder.ApplyConfiguration(new PagamentoEntityConfiguration());
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(DbContext).Assembly);
 

@@ -12,9 +12,6 @@ namespace modelo.Infrastructure.DataProviders.EntityConfigurations
                 .ToTable("tb_Cliente")
                 .HasKey(p => new { p.Id });
 
-            builder.Property(p => p.Id)
-                .HasColumnType("varchar(36)");
-
             builder.Property(p => p.Nome)
                .HasColumnType("varchar(200)");
 

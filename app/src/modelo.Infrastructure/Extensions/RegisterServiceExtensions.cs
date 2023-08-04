@@ -4,18 +4,19 @@ using modelo.Application.Models.CategoriaModel;
 using modelo.Application.Models.ClienteModel;
 using modelo.Application.Models.PedidoModel;
 using modelo.Application.Models.ProdutoModel;
-using modelo.Application.Models.AcompanhamentoModel;
 using modelo.Application.UseCases;
 using modelo.Application.UseCases.CategoriaUseCase;
 using modelo.Application.UseCases.ClienteUseCase;
 using modelo.Application.UseCases.PedidoUseCase;
 using modelo.Application.UseCases.ProdutoUseCase;
-using modelo.Application.UseCases.AcompanhamentoUseCase;
 using modelo.Domain.Gateways;
 using modelo.Infrastructure.DataProviders;
 using modelo.Infrastructure.DataProviders.Repositories;
 using modelo.Domain.Gateways.External;
 using modelo.Infrastructure.DataProviders.Repositories.External;
+using modelo.Application.Models.PagamentoModel;
+using modelo.Application.UseCases.PagamentoUseCase;
+using System;
 
 namespace modelo.Infrastructure.Extensions
 {
@@ -42,11 +43,12 @@ namespace modelo.Infrastructure.Extensions
 
             services.AddTransient<IUseCaseIEnumerableAsync<IEnumerable<PedidoDetalhadoResponse>>, GetAllPedidoUseCaseAsync>();
             services.AddTransient<IUseCaseIEnumerableAsync<PedidoRequest, PedidoDetalhadoPorSenhaResponse>, GetPedidoBySenhaUseCaseAsync>();
-            services.AddTransient<IUseCaseAsync<PedidoPostRequest>, PostPedidoUseCaseAsync>();
+            services.AddTransient<IUseCaseAsync<PedidoPostRequest, Tuple<int, Guid>>, PostPedidoUseCaseAsync>();
             services.AddTransient<IUseCaseAsync<PedidoDeleteRequest>, DeletePedidoUseCaseAsync>();
+            services.AddTransient<IUseCaseAsync<PedidoPutRequest>, PutPedidoUseCaseAsync>();
 
-            services.AddTransient<IUseCaseAsync<AcompanhamentoRequest, AcompanhamentoResponse>, GetAcompanhamentoBySenhaUseCaseAsync>();
-            services.AddTransient<IUseCaseAsync<AcompanhamentoPutRequest>, PutAcompanhamentoUseCaseAsync>();
+            services.AddTransient<IUseCaseAsync<PagamentoPutRequest>, PutPagamentoUseCaseAsync>();
+            services.AddTransient<IUseCaseAsync<PagamentoGetRequest, Tuple<string, Guid>>, GetPagamentoUseCaseAsync>();
         }
 
         private static void AddRepositories(IServiceCollection services)
@@ -55,7 +57,6 @@ namespace modelo.Infrastructure.Extensions
             services.AddTransient<ICategoriaGateway, CategoriaRepository>();
             services.AddTransient<IProdutoGateway, ProdutoRepository>();
             services.AddTransient<IPedidoGateway, PedidoRepository>();
-            services.AddTransient<IAcompanhamentoGateway, AcompanhamentoRepository>();
             services.AddTransient<IPagamentoGateway, PagamentoRepository>();
         }
 

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using modelo.Application.Models.ClienteModel;
 using modelo.Application.UseCases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,43 +35,65 @@ namespace modelo.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
-            var result = await _getAlluseCase.ExecuteAsync();
-
-            if (result.Any())
+            try
             {
-                return Ok(result);
-            }
+                var result = await _getAlluseCase.ExecuteAsync();
 
-            return NoContent();
+                if (result.Any())
+                    return Ok(result);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{Cpf}")]
         public async Task<IActionResult> ClienteByCPFAsync([FromRoute] ClienteRequest clienteResquest)
         {
-            var result = await _getByCPFUseCase.ExecuteAsync(clienteResquest);
-
-            if (result != null)
+            try
             {
-                return Ok(result);
-            }
+                var result = await _getByCPFUseCase.ExecuteAsync(clienteResquest);
 
-            return NoContent();
+                if (result != null)
+                    return Ok(result);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBodyAttribute] ClientePostRequest request)
         {
-            await _postUseCase.ExecuteAsync(request);
-
-            return Ok();
+            try
+            {
+                await _postUseCase.ExecuteAsync(request);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("{Id}")]
         public async Task<IActionResult> Delete([FromRoute] ClienteDeleteRequest request)
         {
-            await _deleteUseCase.ExecuteAsync(request);
-
-            return Ok();
+            try
+            {
+                await _deleteUseCase.ExecuteAsync(request);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

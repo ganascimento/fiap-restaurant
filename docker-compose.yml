@@ -1,51 +1,28 @@
-version: '3.4'
-
+version: "3.4"
 services:
-  backend:
-    image: ${DOCKER_REGISTRY-}restaurant-api
-    container_name: backend
-    build: 
-      context: app/src
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    ports:
-      - "5001:5001"
-    environment:
-      - ASPNETCORE_URLS=http://*:5001
-    depends_on:
-      mysqldatabase:
-        condition: service_healthy
-    networks:
-      - db_network
-
   mysqldatabase:
     image: mysql:8.0.27
     container_name: mysqldatabase
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: 'challenge'
-      MYSQL_DATABASE: 'challenge_db'
-      MYSQL_USER: 'challenge_usr'
-      MYSQL_PASSWORD: 'challenge_pass'
+      MYSQL_ROOT_PASSWORD: "challenge"
+      MYSQL_DATABASE: "challenge_db"
+      MYSQL_USER: "challenge_usr"
+      MYSQL_PASSWORD: "challenge_pass"
     ports:
-      - '3306:3306'
-      - '33060:33060'
+      - "3306:3306"
+      - "33060:33060"
     expose:
       - 3306
       - 33060
     volumes:
       - db_data:/var/lib/mysql
       - ./database/init:/docker-entrypoint-initdb.d/
-    networks:
-      - db_network
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 5s
       timeout: 3s
       retries: 10
-    
+
 volumes:
   db_data:
-
-networks:
-  db_network:

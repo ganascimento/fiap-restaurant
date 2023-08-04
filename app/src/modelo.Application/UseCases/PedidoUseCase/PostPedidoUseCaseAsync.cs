@@ -3,67 +3,47 @@ using AutoMapper;
 using modelo.Domain.Gateways;
 using modelo.Domain.Entities;
 using modelo.Application.Models.PedidoModel;
-using System.Linq;
-using modelo.Domain.Enums;
 using modelo.Domain.Gateways.External;
-using modelo.Domain.Entities.Base;
+using System;
+using System.Collections.Generic;
 
 namespace modelo.Application.UseCases.PedidoUseCase
 {
-    public class PostPedidoUseCaseAsync : IUseCaseAsync<PedidoPostRequest>
+    public class PostPedidoUseCaseAsync : IUseCaseAsync<PedidoPostRequest, Tuple<int, Guid>>
     {
         private readonly IPedidoGateway _pedidoGateway;
         private readonly IPagamentoGateway _pagamentoGateway;
-        private readonly IAcompanhamentoGateway _AcompanhamentoGateway;
+        private readonly IProdutoGateway _produtoGateway;
         private readonly IMapper _mapper;
 
-        public PostPedidoUseCaseAsync(IPedidoGateway pedidoGateway,  IMapper mapper, IAcompanhamentoGateway acompanhamentoGateway, IPagamentoGateway pagamentoGateway)
+        public PostPedidoUseCaseAsync(IPedidoGateway pedidoGateway, IMapper mapper, IPagamentoGateway pagamentoGateway, IProdutoGateway produtoGateway)
         {
             _pedidoGateway = pedidoGateway;
             _mapper = mapper;
-            _AcompanhamentoGateway = acompanhamentoGateway;
             _pagamentoGateway = pagamentoGateway;
+            _produtoGateway = produtoGateway;
         }
 
-        public async Task ExecuteAsync(PedidoPostRequest request)
+        public async Task<Tuple<int, Guid>> ExecuteAsync(PedidoPostRequest request)
         {
-            AssertionConcern.AssertArgumentTrue(
-                _pagamentoGateway.ValidatePaiment(request.Pagamento.Tipo), 
-                "Pagamento Recusado"
-            );
+            if (request.Produtos == null || request.Produtos.Count == 0)
+                throw new ArgumentException("Dados do pedido são inválidos");
 
-            int senha = 0;
+            var pedido = new Pedido();
+            pedido.AddPagamento(request.Pagamento.Tipo);
 
-            var obj = _pedidoGateway.GetAllAsync();
-
-            if (obj != null && obj.Result != null && obj.Result.Count() > 0)
+            foreach (var item in request.Produtos)
             {
-               senha = obj.Result.ToList().MaxBy(max => max.Senha).Senha;
+                var produto = await _produtoGateway.GetAsync(item.ProdutoId);
+                if (produto == null)
+                    throw new KeyNotFoundException("Produto não encontrado");
+
+                var itemPedido = new ItemPedido(pedido.Id, item.ProdutoId, item.Observacao);
+                pedido.AddItemPedido(itemPedido);
             }
 
-            senha = senha + 1;
-
-            if (request.Pedido.Count > 0)
-            {
-                request.Pedido.ForEach(categoria =>
-                {
-                    categoria.Produto.ForEach(produto =>
-                    {
-                        Pedido insert = new Pedido();
-
-                        insert.CategoriaId = categoria.CategoriaId;
-                        insert.ProdutoId = produto.ProdutoId;
-                        insert.Senha = senha;
-
-                        _pedidoGateway.Insert(insert);
-                    });
-                });
-
-                Acompanhamento acompanhamento = new Acompanhamento();
-                acompanhamento.Senha = senha;
-                acompanhamento.Status = (int)Status.Pendente;
-                _AcompanhamentoGateway.Insert(acompanhamento);
-            }                      
+            pedido = await _pedidoGateway.AddAsync(pedido);
+            return new Tuple<int, Guid>(pedido.Senha, pedido.Pagamento.Id);
         }
     }
 }

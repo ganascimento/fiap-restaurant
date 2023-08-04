@@ -5,7 +5,6 @@ using AutoMapper;
 using Microsoft.Extensions.Caching.Memory;
 using modelo.Application.Enums;
 using modelo.Application.Models.PedidoModel;
-using modelo.Domain.Entities;
 using modelo.Domain.Gateways;
 using modelo.Domain.ValueObjects;
 
@@ -28,15 +27,14 @@ namespace modelo.Application.UseCases.PedidoUseCase
         {
             if (!_memoryCache.TryGetValue(CacheKeys.TodosPedidos, out IEnumerable<PedidoDetalhadoDto> cacheValue))
             {
-                var result = await _gateway.GetPedidoDetalhado();
-                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(20));
+                var result = await _gateway.GetPedidosDetalhados();
+                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(10));
                 _memoryCache.Set(CacheKeys.TodosPedidos, result, cacheEntryOptions);
 
                 return _mapper.Map<IEnumerable<PedidoDetalhadoResponse>>(result);
             }
 
             return _mapper.Map<IEnumerable<PedidoDetalhadoResponse>>(cacheValue);
-            
         }
     }
 }

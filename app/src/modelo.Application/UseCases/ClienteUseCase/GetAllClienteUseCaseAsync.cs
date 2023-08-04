@@ -15,7 +15,6 @@ namespace modelo.Application.UseCases.ClienteUseCase
         {
             _clienteGateway = clienteGateway;
             _mapper = mapper;
-
         }
 
         public async Task<IEnumerable<ClienteResponse>> ExecuteAsync()

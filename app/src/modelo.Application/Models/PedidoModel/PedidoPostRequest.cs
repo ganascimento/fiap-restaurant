@@ -8,11 +8,11 @@ namespace modelo.Application.Models.PedidoModel
 {
     public class PedidoPostRequest
     {
-        [JsonProperty("pedido")]
-        public List<PedidoDto> Pedido { get; set; }
+        [JsonProperty("produto")]
+        public List<ProdutoDto> Produtos { get; set; }
 
         [JsonProperty("Pagamento")]
         public PagamentoDto Pagamento { get; set; }
-    
+
     }
 }

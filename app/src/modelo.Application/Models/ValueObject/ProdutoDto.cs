@@ -1,9 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace modelo.Application.Models.ValueObject
 {
@@ -11,5 +7,8 @@ namespace modelo.Application.Models.ValueObject
     {
         [JsonProperty("produtoId")]
         public Guid ProdutoId { get; set; }
+
+        [JsonProperty("observacao")]
+        public string Observacao { get; set; }
     }
 }

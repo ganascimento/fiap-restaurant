@@ -2,6 +2,7 @@
 using AutoMapper;
 using modelo.Domain.Gateways;
 using modelo.Application.Models.ClienteModel;
+using System.Collections.Generic;
 
 namespace modelo.Application.UseCases.ClienteUseCase
 {
@@ -16,6 +17,10 @@ namespace modelo.Application.UseCases.ClienteUseCase
 
         public async Task ExecuteAsync(ClienteDeleteRequest request)
         {
+            var exists = await _clienteGateway.GetAsync(request.Id);
+            if (exists == null)
+                throw new KeyNotFoundException("Cliente não encontrado");
+
             await _clienteGateway.DeleteAsync(request.Id);
         }
     }

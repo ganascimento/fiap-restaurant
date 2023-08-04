@@ -3,6 +3,7 @@ using AutoMapper;
 using modelo.Domain.Gateways;
 using modelo.Application.Models.ProdutoModel;
 using modelo.Application.Models.PedidoModel;
+using System.Collections.Generic;
 
 namespace modelo.Application.UseCases.ProdutoUseCase
 {
@@ -17,6 +18,10 @@ namespace modelo.Application.UseCases.ProdutoUseCase
 
         public async Task ExecuteAsync(ProdutoDeleteRequest request)
         {
+            var existsItem = await _gateway.GetAsync(request.Id);
+            if (existsItem == null)
+                throw new KeyNotFoundException("Produto não encontrado");
+
             await _gateway.DeleteAsync(request.Id);
         }
     }

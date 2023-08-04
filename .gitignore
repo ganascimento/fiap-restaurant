@@ -25,3 +25,5 @@ PublishOutput/
 project.lock.json
 *.nuget.targets
 **/*.nuget.props
+
+database

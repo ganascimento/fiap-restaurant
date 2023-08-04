@@ -12,9 +12,6 @@ namespace modelo.Infrastructure.DataProviders.EntityConfigurations
                 .ToTable("tb_Produto")
                 .HasKey(p => new { p.Id });
 
-            builder.Property(p => p.Id)
-                .HasColumnType("varchar(36)");
-
             builder.Property(p => p.Nome)
                .HasColumnType("varchar(200)");
 
@@ -23,6 +20,10 @@ namespace modelo.Infrastructure.DataProviders.EntityConfigurations
 
             builder.HasOne(p => p.Categoria)
                 .WithMany(p => p.Produtos);
+
+            builder.HasMany(p => p.ItensPedido)
+                .WithOne(p => p.Produto)
+                .HasForeignKey(p => p.ProdutoId);
         }
     }
 }
