@@ -1,10 +1,10 @@
-version: '3.4'
+version: "3.4"
 
 services:
   backend:
     image: ${DOCKER_REGISTRY-}restaurant-api
     container_name: backend
-    build: 
+    build:
       context: app/src
       dockerfile: Dockerfile
     restart: unless-stopped
@@ -23,13 +23,13 @@ services:
     container_name: mysqldatabase
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: 'challenge'
-      MYSQL_DATABASE: 'challenge_db'
-      MYSQL_USER: 'challenge_usr'
-      MYSQL_PASSWORD: 'challenge_pass'
+      MYSQL_ROOT_PASSWORD: "challenge"
+      MYSQL_DATABASE: "challenge_db"
+      MYSQL_USER: "challenge_usr"
+      MYSQL_PASSWORD: "challenge_pass"
     ports:
-      - '3306:3306'
-      - '33060:33060'
+      - "3306:3306"
+      - "33060:33060"
     expose:
       - 3306
       - 33060
@@ -43,7 +43,7 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10
-    
+
 volumes:
   db_data:
 

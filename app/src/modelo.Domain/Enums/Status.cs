@@ -1,16 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace modelo.Domain.Enums
 {
-    public enum Status
+    public enum Status : short
     {
+        [Description("Recebido")]
         Pendente,
+
+        [Description("Em preparação")]
         EmPreparo,
+
+        [Description("Pronto")]
         Pronto,
-        Entregue
+
+        [Description("Entregue")]
+        Entregue,
     }
 }

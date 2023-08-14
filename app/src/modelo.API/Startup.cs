@@ -77,6 +77,8 @@ namespace modelo.API
                 c.RoutePrefix = "";
             });
 
+            app.ExecuteMigration();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

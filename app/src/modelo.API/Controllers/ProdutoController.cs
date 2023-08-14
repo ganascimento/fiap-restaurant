@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using modelo.Application.Models.ProdutoModel;
 using modelo.Application.UseCases;
 using System;
@@ -18,16 +17,13 @@ namespace modelo.API.Controllers
         private readonly IUseCaseAsync<ProdutoPostRequest> _postUseCase;
         private readonly IUseCaseAsync<ProdutoPutRequest> _putUseCase;
         private readonly IUseCaseAsync<ProdutoDeleteRequest> _deleteUseCase;
-        private readonly ILogger<ProdutoController> _logger;
 
-        public ProdutoController(ILogger<ProdutoController> logger,
-            IUseCaseIEnumerableAsync<ProdutoRequest, IEnumerable<ProdutoResponse>> getByCategoriauseCase,
+        public ProdutoController(IUseCaseIEnumerableAsync<ProdutoRequest, IEnumerable<ProdutoResponse>> getByCategoriauseCase,
             IUseCaseIEnumerableAsync<IEnumerable<ProdutoResponse>> getAlluseCase,
             IUseCaseAsync<ProdutoPostRequest> postUseCase,
             IUseCaseAsync<ProdutoPutRequest> putUseCase,
             IUseCaseAsync<ProdutoDeleteRequest> deleteUseCase)
         {
-            _logger = logger;
             _getByCategoriauseCase = getByCategoriauseCase;
             _getAlluseCase = getAlluseCase;
             _postUseCase = postUseCase;
@@ -38,53 +34,80 @@ namespace modelo.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
-            var result = await _getAlluseCase.ExecuteAsync();
-
-            if (result.Any())
+            try
             {
-                return Ok(result);
-            }
+                var result = await _getAlluseCase.ExecuteAsync();
 
-            return NoContent();
+                if (result.Any())
+                    return Ok(result);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{CategoriaId}")]
         public async Task<IActionResult> GetProdutoByCategoriaId([FromRoute] ProdutoRequest request)
         {
-            var result = await _getByCategoriauseCase.ExecuteAsync(request);
-
-            if (result != null)
+            try
             {
-                return Ok(result);
-            }
+                var result = await _getByCategoriauseCase.ExecuteAsync(request);
 
-            return NoContent();
+                if (result != null)
+                    return Ok(result);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost()]
         public async Task<IActionResult> Post([FromBodyAttribute] ProdutoPostRequest request)
         {
-            await _postUseCase.ExecuteAsync(request);
-
-            return Ok();
+            try
+            {
+                await _postUseCase.ExecuteAsync(request);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut("{Id}")]
         public async Task<IActionResult> Put([FromRoute] Guid Id, [FromBodyAttribute] ProdutoPutRequest request)
         {
-            request.Id = Id;
-
-            await _putUseCase.ExecuteAsync(request);
-
-            return Ok();
+            try
+            {
+                request.Id = Id;
+                await _putUseCase.ExecuteAsync(request);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("{Id}")]
         public async Task<IActionResult> Delete([FromRoute] ProdutoDeleteRequest request)
         {
-            await _deleteUseCase.ExecuteAsync(request);
-
-            return Ok();
+            try
+            {
+                await _deleteUseCase.ExecuteAsync(request);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "3b9b5059-00da-4d9a-bc41-67bc113e584b",
+		"_postman_id": "30671e3b-0625-483b-8aac-287588ef0861",
 		"name": "fiap-restaurant",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23312248"
+		"_exporter_id": "5719603"
 	},
 	"item": [
 		{
@@ -233,7 +233,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"pagamento\": {\r\n        \"tipo\": \"{{PAGAMENTO_PIX}}\"\r\n    },\r\n    \"pedido\": [\r\n        {\r\n            \"categoriaId\": \"{{CATEGORIA_LANCHE_ID}}\",\r\n            \"produto\": [\r\n                {\r\n                    \"produtoId\": \"{{CHESSEBURGUER_ID}}\"\r\n                },\r\n                {\r\n                    \"produtoId\": \"{{CHESSEBURGUER_ID}}\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"categoriaId\": \"{{CATEGORIA_ACOMPANHAMENTO_ID}}\",\r\n            \"produto\": [\r\n                {\r\n                    \"produtoId\": \"{{BATATA_FRITA_G_ID}}\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"categoriaId\": \"{{CATEGORIA_BEBIDA_ID}}\",\r\n            \"produto\": [\r\n                {\r\n                    \"produtoId\": \"{{COCA_COLA_P_ID}}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"pagamento\": {\r\n        \"tipo\": \"{{PAGAMENTO_PIX}}\"\r\n    },\r\n    \"produto\": [\r\n        {\r\n            \"produtoId\": \"24e4c228-06c3-4b10-839c-47f4770e13d2\",\r\n            \"observacao\": \"Sem salada\"\r\n        },\r\n        {\r\n            \"produtoId\": \"24e4c228-06c3-4b10-839c-47f4770e13d2\"\r\n        },\r\n        {\r\n            \"produtoId\": \"ab92b843-7efb-4d88-b9d2-188a04c4fd76\"\r\n        },\r\n        {\r\n            \"produtoId\": \"be45967b-3a27-486f-a104-35d84b3da608\",\r\n            \"observacao\": \"Sem gelo\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -241,12 +241,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{URL}}/Pedido",
+							"raw": "{{URL}}/Pedido/Checkout",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
-								"Pedido"
+								"Pedido",
+								"Checkout"
 							]
 						}
 					},
@@ -258,12 +259,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/Pedido",
+							"raw": "{{URL}}/Pedido/Acompanhamento",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
-								"Pedido"
+								"Pedido",
+								"Acompanhamento"
 							]
 						}
 					},
@@ -275,20 +277,48 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/Pedido/{{SENHA}}",
+							"raw": "{{URL}}/Pedido/4",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"Pedido",
-								"{{SENHA}}"
+								"4"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "4 - Deletar um item do pedido",
+					"name": "4 - Atualiza status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/Pedido/AtualizarStatus/fc2ee64a-3392-4e6b-8d1c-380b5f918288",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Pedido",
+								"AtualizarStatus",
+								"fc2ee64a-3392-4e6b-8d1c-380b5f918288"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5 - Deletar um item do pedido",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -308,34 +338,16 @@
 			]
 		},
 		{
-			"name": "05 - Acompanhamento do Pedido",
+			"name": "05 - WebHook",
 			"item": [
 				{
-					"name": "Obter Acompanhamento do pedido Pela Senha",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/Acompanhamento/{{SENHA}}",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"Acompanhamento",
-								"{{SENHA}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Atualizar Status do Acompanhamento de pedido",
+					"name": "Atualiza status pagamento",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"Status\": \"{{STATUS_PRONTO}}\"\r\n}",
+							"raw": "{\r\n    \"status\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -343,13 +355,38 @@
 							}
 						},
 						"url": {
-							"raw": "{{URL}}/Acompanhamento/{{ACOMPANHAMENTO_ID}}",
+							"raw": "{{URL}}/WebHook/AtualizaPagamento/432dad96-4def-4b9d-82e8-b8d0c8870e55",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
-								"Acompanhamento",
-								"{{ACOMPANHAMENTO_ID}}"
+								"WebHook",
+								"AtualizaPagamento",
+								"432dad96-4def-4b9d-82e8-b8d0c8870e55"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "06 - Pagamento",
+			"item": [
+				{
+					"name": "Obtém status pagamento por ID do pedido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Pagamento/StatusPagamento/6d053910-df62-4a38-af78-743beee3f69c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Pagamento",
+								"StatusPagamento",
+								"6d053910-df62-4a38-af78-743beee3f69c"
 							]
 						}
 					},
@@ -381,7 +418,7 @@
 	"variable": [
 		{
 			"key": "URL",
-			"value": "http://localhost:5001",
+			"value": "https://localhost:5003",
 			"type": "string"
 		},
 		{
@@ -498,11 +535,6 @@
 			"type": "string"
 		},
 		{
-			"key": "CHESSEBURGUER_ID",
-			"value": "679ae00f-ccda-449b-83dc-21158d1c1c94",
-			"type": "string"
-		},
-		{
 			"key": "NUGGETS_12_ID",
 			"value": "df53ad6a-0e12-4e1b-9806-234ac6c963bd",
 			"type": "string"
@@ -523,11 +555,6 @@
 			"type": "string"
 		},
 		{
-			"key": "COCA_COLA_M_ID",
-			"value": "d6dcd390-bd61-4cee-a118-f72a1d793eb4",
-			"type": "string"
-		},
-		{
 			"key": "COCA_COLA_P_ID",
 			"value": "34a143b3-6b13-4852-ab88-24b33e59164c",
 			"type": "string"
@@ -545,11 +572,6 @@
 		{
 			"key": "SORVETE_CHOCOLATE_ID",
 			"value": "f3dd62f0-992c-4d8c-ae10-623ccef9eab5",
-			"type": "string"
-		},
-		{
-			"key": "SORVETE_MISTO_ID",
-			"value": "d7a6c31a-2648-487e-a9d0-194138a143d2",
 			"type": "string"
 		},
 		{
