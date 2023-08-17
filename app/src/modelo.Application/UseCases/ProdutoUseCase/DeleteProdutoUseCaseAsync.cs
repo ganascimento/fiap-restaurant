@@ -1,8 +1,6 @@
 ﻿using System.Threading.Tasks;
-using AutoMapper;
 using modelo.Domain.Gateways;
 using modelo.Application.Models.ProdutoModel;
-using modelo.Application.Models.PedidoModel;
 using System.Collections.Generic;
 
 namespace modelo.Application.UseCases.ProdutoUseCase

@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using AutoMapper;
 using modelo.Domain.Gateways;
 using modelo.Application.Models.ClienteModel;
 using System.Collections.Generic;

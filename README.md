@@ -1,10 +1,6 @@
 # FIAP-RESTAURANT
 
----
-
 ## Inicializando o projeto
-
----
 
 ### Docker
 

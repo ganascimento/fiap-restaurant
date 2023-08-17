@@ -28,7 +28,7 @@ namespace modelo.Application.UseCases.ProdutoUseCase
             if (!_memoryCache.TryGetValue(CacheKeys.TodosProduto, out IEnumerable<Produto> cacheValue))
             {
                 var result = await _gateway.GetAllAsync();
-                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(20));
+                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(5));
                 _memoryCache.Set(CacheKeys.TodosProduto, result, cacheEntryOptions);
 
                 return _mapper.Map<IEnumerable<ProdutoResponse>>(result);

@@ -7,21 +7,14 @@ namespace modelo.Domain.Entities
 {
     public class Pedido : Entity<Guid>
     {
+        private Pedido() { }
+
         public Pedido(Guid? id = null, Status? status = null, Pagamento pagamento = null)
         {
             Id = id == null ? Guid.NewGuid() : (Guid)id;
             this.Status = status == null ? Status.Pendente : (Status)status;
             Pagamento = pagamento;
             ValidateEntity();
-        }
-
-        /// <summary>
-        /// EF constructor
-        /// </summary>
-        public Pedido(Guid id, Status status)
-        {
-            Id = id;
-            Status = status;
         }
 
         public int Senha { get; private set; }

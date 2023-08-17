@@ -16,7 +16,11 @@ namespace modelo.Infrastructure.DataProviders.EntityConfigurations
                .HasColumnType("varchar(200)");
 
             builder.Property(p => p.Cpf)
-               .HasColumnType("varchar(11)");
+               .HasColumnType("varchar(11)")
+               .HasConversion<string>(
+                    coreValue => coreValue.ToString(),
+                    efValue => efValue
+                );
         }
     }
 }

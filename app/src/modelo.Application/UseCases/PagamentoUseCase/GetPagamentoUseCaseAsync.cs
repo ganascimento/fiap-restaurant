@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using modelo.Application.Models.PagamentoModel;
 using modelo.Application.Utils;
@@ -18,6 +19,8 @@ namespace modelo.Application.UseCases.PagamentoUseCase
         public async Task<Tuple<string, Guid>> ExecuteAsync(PagamentoGetRequest request)
         {
             var pagamento = await _pagamentoGateway.GetByPedidoAsync(request.IdPedido);
+            if (pagamento == null)
+                throw new KeyNotFoundException("Pagamento não encontrado");
 
             return new Tuple<string, Guid>(
                 EnumUtil.GetDescriptionFromEnumValue(pagamento.Status),
