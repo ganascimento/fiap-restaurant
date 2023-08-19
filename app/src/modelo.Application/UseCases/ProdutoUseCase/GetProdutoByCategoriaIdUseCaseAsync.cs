@@ -30,7 +30,7 @@ namespace modelo.Application.UseCases.ProdutoUseCase
             if (!_memoryCache.TryGetValue(key, out IEnumerable<Produto> cacheValue))
             {
                 var result = await _gateway.GetProdutoByCategoriaIdAsync(request.CategoriaId);
-                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(20));
+                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(5));
                 _memoryCache.Set(key, result, cacheEntryOptions);
 
                 return _mapper.Map<IEnumerable<ProdutoResponse>>(result);

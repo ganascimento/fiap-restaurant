@@ -77,6 +77,7 @@ namespace modelo.Infrastructure.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Cpf")
+                        .IsRequired()
                         .HasColumnType("varchar(11)");
 
                     b.Property<DateTime>("DataAtualizacao")
@@ -95,7 +96,7 @@ namespace modelo.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b71a3cc1-52d3-4bcd-8e54-e89548ed5b5c"),
+                            Id = new Guid("dc9e9abe-6c11-41c8-b86a-10d8af06ac95"),
                             Cpf = "08154831473",
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -103,7 +104,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3404cf8e-7ebd-4fab-b8e4-5ae78013a690"),
+                            Id = new Guid("7c416c9e-5816-4b02-a9b6-9992e09b6967"),
                             Cpf = "26521727788",
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -227,7 +228,7 @@ namespace modelo.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("24e4c228-06c3-4b10-839c-47f4770e13d2"),
+                            Id = new Guid("ac096413-5daf-44c0-9964-431e672f0e6d"),
                             CategoriaId = new Guid("ada751db-8553-493f-b308-70bd29aed106"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -236,7 +237,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7e5b9406-6b51-49d4-afce-411f16e6619f"),
+                            Id = new Guid("edbb6701-b7a0-4c2e-a0ca-215c90040165"),
                             CategoriaId = new Guid("ada751db-8553-493f-b308-70bd29aed106"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -245,7 +246,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cece9319-2804-491d-bf78-88e86b86512a"),
+                            Id = new Guid("f9bb1e95-749a-4736-a7f8-8215c84721b4"),
                             CategoriaId = new Guid("ada751db-8553-493f-b308-70bd29aed106"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -254,7 +255,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b305111e-7cc7-4b5b-980f-cc804633e0d7"),
+                            Id = new Guid("acc5e53f-b4bd-4faf-9849-09e0995ecb2c"),
                             CategoriaId = new Guid("ada751db-8553-493f-b308-70bd29aed106"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -263,7 +264,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8a194ccc-14bc-4e87-be89-59e90dd65670"),
+                            Id = new Guid("a80a6588-3128-4814-9e21-ec36555a5bfd"),
                             CategoriaId = new Guid("ada751db-8553-493f-b308-70bd29aed106"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -272,7 +273,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("742eb5d7-5363-4f5c-a37c-7aa873f3bd61"),
+                            Id = new Guid("7309061c-1888-49b7-b367-6fd4153da7a8"),
                             CategoriaId = new Guid("cf412102-35da-43d8-9c3c-b72546104c72"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -281,7 +282,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ab92b843-7efb-4d88-b9d2-188a04c4fd76"),
+                            Id = new Guid("951a8310-4c70-44aa-b041-5d669dc1fdbe"),
                             CategoriaId = new Guid("cf412102-35da-43d8-9c3c-b72546104c72"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -290,7 +291,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b3498340-e71b-4c1f-8dae-21ef4f96ffa1"),
+                            Id = new Guid("e8280926-0c3c-4522-91ea-f8d95ce2ab3d"),
                             CategoriaId = new Guid("cf412102-35da-43d8-9c3c-b72546104c72"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -299,7 +300,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("01e4acb8-5985-428a-b354-e20b374c025b"),
+                            Id = new Guid("d8892d0a-12c0-4a4d-8826-659f4136b961"),
                             CategoriaId = new Guid("cf412102-35da-43d8-9c3c-b72546104c72"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -308,7 +309,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cce1a54e-9ebd-41d2-8d23-7e78c6925bf7"),
+                            Id = new Guid("31bfb7f1-9c1e-41ca-b5f1-956861ddf34a"),
                             CategoriaId = new Guid("cf412102-35da-43d8-9c3c-b72546104c72"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -317,7 +318,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("71a1d223-c66e-45c6-9c19-a6e191972968"),
+                            Id = new Guid("f0d33613-4e8d-41b5-9fc2-6af8f2b29d11"),
                             CategoriaId = new Guid("cf412102-35da-43d8-9c3c-b72546104c72"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -326,7 +327,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("79295cc0-1c0e-4bde-9928-0970dacaebd0"),
+                            Id = new Guid("6dc89609-8aeb-4454-bfeb-76671554f7b1"),
                             CategoriaId = new Guid("5117243c-b007-49e8-9a30-842ec79248ae"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -335,7 +336,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("be45967b-3a27-486f-a104-35d84b3da608"),
+                            Id = new Guid("c5bc33a2-5168-4abf-9cc2-1ba8be2bc546"),
                             CategoriaId = new Guid("5117243c-b007-49e8-9a30-842ec79248ae"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -344,7 +345,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e0da5dd9-8afe-45e9-8c6b-0a93ca09fbb7"),
+                            Id = new Guid("12512d36-75ac-4792-b7e0-84bcedf8a6fb"),
                             CategoriaId = new Guid("5117243c-b007-49e8-9a30-842ec79248ae"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -353,7 +354,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b428ccd2-56f7-4faf-928b-cc351fd0a33f"),
+                            Id = new Guid("ad323b3c-a766-4302-9b23-d71f0edf6163"),
                             CategoriaId = new Guid("32f0c5f0-d9ba-40e2-8d7a-57eed4727e2b"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -362,7 +363,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d4ce24bd-617c-44cb-a070-5427152fdc7a"),
+                            Id = new Guid("c4630a73-a9ea-4eb8-bd41-91fdea625f41"),
                             CategoriaId = new Guid("32f0c5f0-d9ba-40e2-8d7a-57eed4727e2b"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -371,7 +372,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c0653170-fd6b-40b9-8ae9-c97b5db43f2d"),
+                            Id = new Guid("6bb34b1f-8b80-41ea-92c4-f2bad6fd953c"),
                             CategoriaId = new Guid("32f0c5f0-d9ba-40e2-8d7a-57eed4727e2b"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -380,7 +381,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0072f397-144c-4c99-bc27-7e5861d92033"),
+                            Id = new Guid("4f97de7c-a2fa-4468-976d-7fcaddf2363e"),
                             CategoriaId = new Guid("32f0c5f0-d9ba-40e2-8d7a-57eed4727e2b"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -389,7 +390,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a5bbefb9-194d-473d-a80f-96965a20c0cf"),
+                            Id = new Guid("68ac45b4-22fb-48c4-85dc-ce56d6ab887f"),
                             CategoriaId = new Guid("32f0c5f0-d9ba-40e2-8d7a-57eed4727e2b"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -398,7 +399,7 @@ namespace modelo.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b3024398-76cb-41db-905d-75485b8e14fc"),
+                            Id = new Guid("afc1c4d3-3ff1-4d0a-9bc8-7943e02b44fb"),
                             CategoriaId = new Guid("32f0c5f0-d9ba-40e2-8d7a-57eed4727e2b"),
                             DataAtualizacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataCriacao = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),

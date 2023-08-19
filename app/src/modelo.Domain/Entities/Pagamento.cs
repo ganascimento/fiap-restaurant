@@ -6,6 +6,8 @@ namespace modelo.Domain.Entities
 {
     public class Pagamento : Entity<Guid>
     {
+        private Pagamento() { }
+
         public Pagamento(TipoPagamento tipoPagamento, Guid pedidoId, StatusPagamento? status = null, Guid? id = null)
         {
             Id = id == null ? Guid.NewGuid() : (Guid)id;
@@ -13,17 +15,6 @@ namespace modelo.Domain.Entities
             TipoPagamento = tipoPagamento;
             PedidoId = pedidoId;
             ValidateEntity();
-        }
-
-        /// <summary>
-        /// EF constructor
-        /// </summary>
-        public Pagamento(Guid id, TipoPagamento tipoPagamento, StatusPagamento status, Guid pedidoId)
-        {
-            Id = id;
-            TipoPagamento = tipoPagamento;
-            Status = status;
-            PedidoId = pedidoId;
         }
 
         public TipoPagamento TipoPagamento { get; private set; }

@@ -1,6 +1,6 @@
-namespace modelo.Domain.ValueObjects
+namespace modelo.Application.Models.PedidoModel
 {
-    public class ItemPedidoDto
+    public class GetItemPedidoUseCaseAsync
     {
         public string NomeProduto { get; set; }
         public string NomeCategoria { get; set; }

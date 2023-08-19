@@ -26,7 +26,7 @@ namespace modelo.Application.UseCases.ClienteUseCase
             return new ClienteResponse
             {
                 Id = result.Id,
-                Cpf = result.Cpf,
+                Cpf = result.Cpf.ToString(),
                 Nome = result.Nome
             };
         }

@@ -6,7 +6,6 @@ using modelo.Application.Models.PedidoModel;
 using modelo.Application.Models.ProdutoModel;
 using modelo.Application.Utils;
 using modelo.Domain.Entities;
-using modelo.Domain.ValueObjects;
 
 namespace modelo.Application.Mappers
 {
@@ -26,16 +25,24 @@ namespace modelo.Application.Mappers
             CreateMap<PedidoPostRequest, Pedido>().ReverseMap();
             CreateMap<PedidoResponse, Pedido>().ReverseMap();
 
-            CreateMap<PedidoDetalhadoDto, PedidoDetalhadoResponse>()
+            CreateMap<Pedido, PedidoDetalhadoResponse>()
                 .ForMember(x => x.Status, m => m.MapFrom(x => EnumUtil.GetDescriptionFromEnumValue(x.Status)))
-                .ForMember(x => x.Total, m => m.MapFrom(x => x.ItensPedido.Select(x => x.Valor).Sum()));
-            CreateMap<ItemPedidoDto, PedidoProdutoDetalhadoResponse>();
+                .ForMember(x => x.Total, m => m.MapFrom(x => x.ItensPedido.Select(x => x.Produto.Valor).Sum()));
 
-            CreateMap<PedidoDetalhadoDto, PedidoDetalhadoPorSenhaResponse>()
+            CreateMap<ItemPedido, PedidoProdutoDetalhadoResponse>()
+                .ForMember(x => x.NomeProduto, m => m.MapFrom(x => x.Produto.Nome))
+                .ForMember(x => x.Valor, m => m.MapFrom(x => x.Produto.Valor))
+                .ForMember(x => x.NomeCategoria, m => m.MapFrom(x => x.Produto.Categoria.Nome));
+
+            CreateMap<Pedido, PedidoDetalhadoPorSenhaResponse>()
                 .ForMember(x => x.Status, m => m.MapFrom(x => EnumUtil.GetDescriptionFromEnumValue(x.Status)))
-                .ForMember(x => x.Total, m => m.MapFrom(x => x.ItensPedido.Select(x => x.Valor).Sum()))
-                .ForMember(x => x.StatusPagamento, m => m.MapFrom(x => EnumUtil.GetDescriptionFromEnumValue(x.StatusPagamento)));
-            CreateMap<ItemPedidoDto, PedidoProdutoDetalhadoPorSenhaResponse>();
+                .ForMember(x => x.Total, m => m.MapFrom(x => x.ItensPedido.Select(x => x.Produto.Valor).Sum()))
+                .ForMember(x => x.StatusPagamento, m => m.MapFrom(x => EnumUtil.GetDescriptionFromEnumValue(x.Pagamento.Status)));
+
+            CreateMap<ItemPedido, PedidoProdutoDetalhadoPorSenhaResponse>()
+                .ForMember(x => x.NomeProduto, m => m.MapFrom(x => x.Produto.Nome))
+                .ForMember(x => x.Valor, m => m.MapFrom(x => x.Produto.Valor))
+                .ForMember(x => x.NomeCategoria, m => m.MapFrom(x => x.Produto.Categoria.Nome));
         }
     }
 }

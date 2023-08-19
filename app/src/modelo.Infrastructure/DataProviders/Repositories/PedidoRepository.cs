@@ -4,9 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 using Microsoft.EntityFrameworkCore;
-using modelo.Domain.ValueObjects;
 using modelo.Domain.Enums;
 
 namespace modelo.Infrastructure.DataProviders.Repositories
@@ -23,7 +21,7 @@ namespace modelo.Infrastructure.DataProviders.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<PedidoDetalhadoDto> GetPedidoBySenhaUseCaseAsync(int senha)
+        public async Task<Pedido> GetPedidoBySenhaUseCaseAsync(int senha)
         {
             var result = await _pedidoDbSet
                 .AsNoTracking()
@@ -32,26 +30,12 @@ namespace modelo.Infrastructure.DataProviders.Repositories
                     .ThenInclude(x => x.Produto)
                         .ThenInclude(x => x.Categoria)
                 .Include(x => x.Pagamento)
-                .Select(pedido => new PedidoDetalhadoDto
-                {
-                    Id = pedido.Id,
-                    Senha = pedido.Senha,
-                    Status = pedido.Status,
-                    StatusPagamento = pedido.Pagamento.Status,
-                    ItensPedido = pedido.ItensPedido.Select(itemPedido => new ItemPedidoDto
-                    {
-                        NomeProduto = itemPedido.Produto.Nome,
-                        NomeCategoria = itemPedido.Produto.Categoria.Nome,
-                        Valor = itemPedido.Produto.Valor,
-                        Observacao = itemPedido.Observacao,
-                    }).ToList()
-                })
                 .FirstOrDefaultAsync();
 
             return result;
         }
 
-        public async Task<IEnumerable<PedidoDetalhadoDto>> GetPedidosDetalhados()
+        public async Task<IEnumerable<Pedido>> GetPedidosDetalhados()
         {
             var result = await _pedidoDbSet
                 .AsNoTracking()
@@ -60,20 +44,6 @@ namespace modelo.Infrastructure.DataProviders.Repositories
                         .ThenInclude(x => x.Categoria)
                 .Include(x => x.Pagamento)
                 .Where(x => (short)x.Status != (short)Status.Pronto && (short)x.Pagamento.Status != (short)StatusPagamento.Reprovado)
-                .Select(pedido => new PedidoDetalhadoDto
-                {
-                    Id = pedido.Id,
-                    Senha = pedido.Senha,
-                    Status = pedido.Status,
-                    StatusPagamento = pedido.Pagamento.Status,
-                    ItensPedido = pedido.ItensPedido.Select(itemPedido => new ItemPedidoDto
-                    {
-                        NomeProduto = itemPedido.Produto.Nome,
-                        NomeCategoria = itemPedido.Produto.Categoria.Nome,
-                        Valor = itemPedido.Produto.Valor,
-                        Observacao = itemPedido.Observacao,
-                    }).ToList()
-                })
                 .OrderByDescending(pedido => pedido.Status)
                 .ThenBy(pedido => pedido.Senha)
                 .ToListAsync();

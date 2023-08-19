@@ -5,6 +5,8 @@ namespace modelo.Domain.Entities
 {
     public class ItemPedido : Entity<Guid>
     {
+        private ItemPedido() { }
+
         public ItemPedido(Guid pedidoId, Guid produtoId, string observacao, Guid? id = null)
         {
             Id = id == null ? Guid.NewGuid() : (Guid)id;
@@ -13,17 +15,6 @@ namespace modelo.Domain.Entities
             Observacao = observacao;
 
             ValidateEntity();
-        }
-
-        /// <summary>
-        /// EF constructor
-        /// </summary>
-        public ItemPedido(Guid id, Guid pedidoId, Guid produtoId, string observacao)
-        {
-            Id = id;
-            PedidoId = pedidoId;
-            ProdutoId = produtoId;
-            Observacao = observacao;
         }
 
         public Guid PedidoId { get; set; }
