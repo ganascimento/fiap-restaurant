@@ -23,9 +23,3 @@ kubectl apply -f .\kubernets\
 Os endpoints disponíveis podem ser acessados via [swager](http://localhost:5001/swagger/index.html)
 
 Também temos uma [collection do Postman](/postman/fiap-restaurant.postman_collection.json)
-
-kubectl apply -f kubernets/pv.yml;
-kubectl apply -f kubernets/pvc.yml;
-kubectl apply -f kubernets/mysql-configmap.yml;
-kubectl apply -f kubernets/mysql-deployment.yml;
-kubectl apply -f kubernets/mysql-svs.yml;
