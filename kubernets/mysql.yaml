@@ -1,3 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+  labels:
+    name: mysql-configmap
+data:
+  MYSQL_ROOT_PASSWORD: "challenge"
+  MYSQL_DATABASE: "challenge_db"
+  MYSQL_USER: "challenge_usr"
+  MYSQL_PASSWORD: "challenge_pass"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv-volume
+  labels:
+    type: local
+    app: mysqldatabase
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,8 +54,8 @@ spec:
         image: mysql:8.0.27
         resources:
           limits:
-            memory: 256Mi
-            cpu: 500m
+            memory: 1Gi
+            cpu: "1"
         env:
           - name: MYSQL_ROOT_PASSWORD
             valueFrom:
@@ -49,3 +87,17 @@ spec:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: mysql-pv-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysqldatabase
+  labels:
+    app: mysqldatabase
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    app: mysqldatabase
