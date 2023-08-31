@@ -4,13 +4,19 @@
 
 ### Docker
 
-Inicie os containers acessando a raiz do projeto, e rodando o comando
+Inicie os containers acessando a raiz do projeto, e rodando o comando:
 
 ```PowerShell
 docker compose up -d --build
 ```
 
----
+### Kubernets
+
+Inicie os pods acessando a raiz do projeto, e rodando o comando:
+
+```PowerShell
+kubectl apply -f .\kubernets\
+```
 
 ### Utilização dos endpoints
 
