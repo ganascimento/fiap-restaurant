@@ -17,6 +17,7 @@ using modelo.Infrastructure.DataProviders.Repositories.External;
 using modelo.Application.Models.PagamentoModel;
 using modelo.Application.UseCases.PagamentoUseCase;
 using System;
+using modelo.Application.Services;
 
 namespace modelo.Infrastructure.Extensions
 {
@@ -47,8 +48,12 @@ namespace modelo.Infrastructure.Extensions
             services.AddTransient<IUseCaseAsync<PedidoDeleteRequest>, DeletePedidoUseCaseAsync>();
             services.AddTransient<IUseCaseAsync<PedidoPutRequest>, PutPedidoUseCaseAsync>();
 
+            services.AddTransient<IUseCaseIEnumerableAsync<IEnumerable<HistoricoClienteResponse>>, GetHistoricoClienteUseCaseAsync>();
+
             services.AddTransient<IUseCaseAsync<PagamentoPutRequest>, PutPagamentoUseCaseAsync>();
             services.AddTransient<IUseCaseAsync<PagamentoGetRequest, Tuple<string, Guid>>, GetPagamentoUseCaseAsync>();
+
+            services.AddTransient<ICognitoGateway, CognitoService>();
         }
 
         private static void AddRepositories(IServiceCollection services)

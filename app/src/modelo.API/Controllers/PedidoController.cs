@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using modelo.Application.Models.PedidoModel;
 using modelo.Application.UseCases;
@@ -15,6 +16,7 @@ namespace modelo.API.Controllers
     {
         private readonly IUseCaseIEnumerableAsync<PedidoRequest, PedidoDetalhadoPorSenhaResponse> _getBySenhaCase;
         private readonly IUseCaseIEnumerableAsync<IEnumerable<PedidoDetalhadoResponse>> _getAlluseCase;
+        private readonly IUseCaseIEnumerableAsync<IEnumerable<HistoricoClienteResponse>> _getHistoricoClienteUseCase;
         private readonly IUseCaseAsync<PedidoPostRequest, Tuple<int, Guid>> _postUseCase;
         private readonly IUseCaseAsync<PedidoPutRequest> _putUseCase;
         private readonly IUseCaseAsync<PedidoDeleteRequest> _deleteUseCase;
@@ -25,7 +27,8 @@ namespace modelo.API.Controllers
             IUseCaseIEnumerableAsync<IEnumerable<PedidoDetalhadoResponse>> getAlluseCase,
             IUseCaseAsync<PedidoPostRequest, Tuple<int, Guid>> postUseCase,
             IUseCaseAsync<PedidoPutRequest> putUseCase,
-            IUseCaseAsync<PedidoDeleteRequest> deleteUseCase)
+            IUseCaseAsync<PedidoDeleteRequest> deleteUseCase,
+            IUseCaseIEnumerableAsync<IEnumerable<HistoricoClienteResponse>> getHistoricoClienteUseCase)
         {
             _logger = logger;
             _getBySenhaCase = getBySenhauseCase;
@@ -33,6 +36,7 @@ namespace modelo.API.Controllers
             _postUseCase = postUseCase;
             _putUseCase = putUseCase;
             _deleteUseCase = deleteUseCase;
+            _getHistoricoClienteUseCase = getHistoricoClienteUseCase;
         }
 
         [HttpGet("Acompanhamento")]
@@ -66,6 +70,24 @@ namespace modelo.API.Controllers
             catch (Exception exception)
             {
                 return BadRequest(exception.Message);
+            }
+        }
+
+        [Authorize]
+        public async Task<IActionResult> GetHistoricoCliente()
+        {
+            try
+            {
+                var result = await _getHistoricoClienteUseCase.ExecuteAsync();
+
+                if (result != null)
+                    return Ok(result);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 

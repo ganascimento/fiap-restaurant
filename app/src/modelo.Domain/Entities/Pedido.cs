@@ -9,11 +9,12 @@ namespace modelo.Domain.Entities
     {
         private Pedido() { }
 
-        public Pedido(Guid? id = null, Status? status = null, Pagamento pagamento = null)
+        public Pedido(Guid? id = null, Status? status = null, Pagamento pagamento = null, Cliente cliente = null)
         {
             Id = id == null ? Guid.NewGuid() : (Guid)id;
             this.Status = status == null ? Status.Pendente : (Status)status;
             Pagamento = pagamento;
+            Cliente = cliente;
             ValidateEntity();
         }
 
@@ -21,6 +22,7 @@ namespace modelo.Domain.Entities
         public Status Status { get; private set; }
         public virtual ICollection<ItemPedido> ItensPedido { get; set; }
         public virtual Pagamento Pagamento { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
         public void AddItemPedido(ItemPedido itemPedido)
         {

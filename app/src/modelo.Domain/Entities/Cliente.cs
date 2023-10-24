@@ -8,16 +8,18 @@ namespace modelo.Domain.Entities
     {
         private Cliente() { }
 
-        public Cliente(string nome, string cpf, Guid? id = null)
+        public Cliente(string nome, string cpf, string userId, Guid? id = null)
         {
             Id = id == null ? Guid.NewGuid() : (Guid)id;
             Nome = nome;
             Cpf = cpf;
+            UserId = userId;
             ValidateEntity();
         }
 
         public string Nome { get; private set; }
         public Cpf Cpf { get; private set; }
+        public string UserId { get; set; }
 
         public void CheckClienteAlreadyExists(Cliente cliente)
         {
@@ -29,6 +31,7 @@ namespace modelo.Domain.Entities
         {
             AssertionConcern.AssertArgumentNotNull(Id, "O Id não pode estar vazio!");
             AssertionConcern.AssertArgumentNotEmpty(Nome, "O nome não pode estar vazio!");
+            AssertionConcern.AssertArgumentNotEmpty(UserId, "O userId não pode estar vazio!");
         }
     }
 }

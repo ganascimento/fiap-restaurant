@@ -13,20 +13,16 @@ namespace modelo.Infrastructure.Extensions
         {
             try
             {
-                if (environment.IsTesting()) return;
+                var connectionString = configurations.GetConnectionString("ConnectionString");
 
-                var connectionString = environment.IsDevelopment() ? GetConnectionString(configurations) : GetLocalConnectionStringDocker(configurations);
-
-                services.AddDbContextPool<DBContext>(options => options.UseMysqlServer(connectionString.ToString()));
+                services.AddDbContextPool<DBContext>(options =>
+                    options.UseMysqlServer(connectionString.ToString())
+                );
             }
             catch (Exception)
             {
                 throw;
             }
         }
-
-        private static object GetConnectionString(IConfiguration configurations) => configurations.GetConnectionString("Local");
-
-        private static object GetLocalConnectionStringDocker(IConfiguration configurations) => configurations.GetConnectionString("Docker");
     }
 }

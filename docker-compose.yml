@@ -11,7 +11,8 @@ services:
     ports:
       - "5001:5001"
     environment:
-      - ASPNETCORE_URLS=http://*:5001
+      ASPNETCORE_URLS: http://*:5001
+      ConnectionStrings__ConnectionString: server=mysqldatabase;port=3306;database=challenge_db;uid=challenge_usr;password=challenge_pass
     depends_on:
       mysqldatabase:
         condition: service_healthy

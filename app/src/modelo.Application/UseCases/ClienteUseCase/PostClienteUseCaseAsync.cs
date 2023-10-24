@@ -10,11 +10,13 @@ namespace modelo.Application.UseCases.ClienteUseCase
     {
         private readonly IClienteGateway _clienteGateway;
         private readonly IMapper _mapper;
+        private readonly ICognitoGateway _cognitoGateway;
 
-        public PostClienteUseCaseAsync(IClienteGateway clienteGateway, IMapper mapper)
+        public PostClienteUseCaseAsync(IClienteGateway clienteGateway, IMapper mapper, ICognitoGateway cognitoGateway)
         {
             _clienteGateway = clienteGateway;
             _mapper = mapper;
+            _cognitoGateway = cognitoGateway;
         }
 
         public async Task ExecuteAsync(ClientePostRequest request)
@@ -23,6 +25,7 @@ namespace modelo.Application.UseCases.ClienteUseCase
             var checkCliente = await _clienteGateway.GetByCPFAsync(insert.Cpf);
             insert.CheckClienteAlreadyExists(checkCliente);
 
+            await _cognitoGateway.CreateUser(insert);
             await _clienteGateway.InsertAsync(insert);
         }
     }

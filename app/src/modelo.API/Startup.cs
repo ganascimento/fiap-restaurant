@@ -35,6 +35,8 @@ namespace modelo.API
 
             services.AddRazorPages();
             services.AddSwaggerGen();
+            services.AddCognitoIdentity();
+            services.AuthenticationConfigurations(Configuration);
 
             services.AddControllersWithViews(options =>
             {
