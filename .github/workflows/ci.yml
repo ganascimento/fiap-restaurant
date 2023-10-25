@@ -38,9 +38,6 @@ jobs:
         docker tag $REPOSITORY:latest $REGISTRY/$REPOSITORY:$IMAGE_TAG
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
-    - name: Update kube config
-      run: aws eks update-kubeconfig --region us-east-2 --name fiap-restaurant-g-cluster
-
     - name: Get envs
       run: |
         echo "connectionString=${{ vars.CONNECTION_STRING }}" >> $GITHUB_ENV
