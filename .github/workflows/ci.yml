@@ -21,6 +21,7 @@ jobs:
       uses: ianbelcher/eks-kubectl-action@master
       with:
         cluster_name: fiap-restaurant-g-cluster
+        eks_role_arn: ${{ vars.EKS_ROLE }}
         kubernetes_version: v1.21.0
 
     - name: Login to Amazon ECR
