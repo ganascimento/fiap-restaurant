@@ -56,4 +56,5 @@ jobs:
     
     - name: Deploy to EKS
       run: |
+        kubectl config get-contexts
         kubectl apply -f ./api-gh.yaml
