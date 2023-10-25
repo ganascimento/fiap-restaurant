@@ -37,7 +37,6 @@ namespace modelo.Infrastructure.DataProviders
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(DbContext).Assembly);
 
-            ClienteSeed.Seed(modelBuilder);
             CategoriaSeed.Seed(modelBuilder);
             ProdutoSeed.Seed(modelBuilder);
         }

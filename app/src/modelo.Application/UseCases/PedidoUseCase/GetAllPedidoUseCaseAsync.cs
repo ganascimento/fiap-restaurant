@@ -27,7 +27,7 @@ namespace modelo.Application.UseCases.PedidoUseCase
         {
             if (!_memoryCache.TryGetValue(CacheKeys.TodosPedidos, out IEnumerable<Pedido> cacheValue))
             {
-                var result = await _gateway.GetPedidosDetalhados();
+                var result = await _gateway.GetPedidosDetalhadosAsync();
                 var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(10));
                 _memoryCache.Set(CacheKeys.TodosPedidos, result, cacheEntryOptions);
 

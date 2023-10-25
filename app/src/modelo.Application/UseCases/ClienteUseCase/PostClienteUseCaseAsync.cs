@@ -25,7 +25,9 @@ namespace modelo.Application.UseCases.ClienteUseCase
             var checkCliente = await _clienteGateway.GetByCPFAsync(insert.Cpf);
             insert.CheckClienteAlreadyExists(checkCliente);
 
-            await _cognitoGateway.CreateUser(insert);
+            var userId = await _cognitoGateway.CreateUser(insert);
+            insert.UserId = userId;
+
             await _clienteGateway.InsertAsync(insert);
         }
     }

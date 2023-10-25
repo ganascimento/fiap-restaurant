@@ -18,6 +18,7 @@ using modelo.Application.Models.PagamentoModel;
 using modelo.Application.UseCases.PagamentoUseCase;
 using System;
 using modelo.Application.Services;
+using modelo.Domain.Services;
 
 namespace modelo.Infrastructure.Extensions
 {
@@ -54,6 +55,7 @@ namespace modelo.Infrastructure.Extensions
             services.AddTransient<IUseCaseAsync<PagamentoGetRequest, Tuple<string, Guid>>, GetPagamentoUseCaseAsync>();
 
             services.AddTransient<ICognitoGateway, CognitoService>();
+            services.AddTransient<IIdentityService, IdentityService>();
         }
 
         private static void AddRepositories(IServiceCollection services)

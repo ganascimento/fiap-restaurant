@@ -8,5 +8,6 @@ namespace modelo.Domain.Gateways
     public interface IClienteGateway : IRepositoryGateway<Cliente, Guid>
     {
         Task<Cliente> GetByCPFAsync(Cpf cpf);
+        Task<Cliente> GetByUserIdAsync(string userId);
     }
 }

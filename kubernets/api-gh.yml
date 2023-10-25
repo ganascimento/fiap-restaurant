@@ -15,7 +15,7 @@ spec:
       - name: ecr
       containers:
       - name: api
-        image: 860526977896.dkr.ecr.us-east-2.amazonaws.com/fiap-restaurant:1.0
+        image: 860526977896.dkr.ecr.us-east-2.amazonaws.com/fiap-restaurant:lastest
         resources:
           limits:
             memory: 256Mi
@@ -24,11 +24,11 @@ spec:
           - name: ASPNETCORE_URLS
             value: http://*:5001
           - name: ConnectionStrings__ConnectionString
-            value: server=fiap-restaurant-db.c0bsc1pivbyw.us-east-2.rds.amazonaws.com;port=3306;database=challenge_db;uid=testeuser;password=1234a1234
+            value: $connectionString
           - name: Aws__PoolId
-            value: us-east-2
+            value: $poolId
           - name: Aws__PoolClientId
-            value: 7r
+            value: $poolClientId
         ports:
         - containerPort: 5001
           name: api

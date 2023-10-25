@@ -28,15 +28,15 @@ namespace modelo.Application.Services
                 using (var provider = new AmazonCognitoIdentityProviderClient(RegionEndpoint.USEast2))
                 {
                     var userAttributes = new List<AttributeType>
-                {
-                    new AttributeType
                     {
-                        Name = "name",
-                        Value = cliente.Nome
-                    }
-                };
+                        new AttributeType
+                        {
+                            Name = "name",
+                            Value = cliente.Nome
+                        }
+                    };
 
-                    var signUpResponse = await provider.SignUpAsync(new SignUpRequest
+                    var signUpResult = await provider.SignUpAsync(new SignUpRequest
                     {
                         ClientId = UserPoolClientId,
                         Username = cliente.Cpf.ToString(),
@@ -50,7 +50,26 @@ namespace modelo.Application.Services
                         Username = cliente.Cpf.ToString(),
                     });
 
-                    return signUpResponse.UserSub;
+                    return signUpResult.UserSub;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        public async Task DeleteUser(string userId)
+        {
+            try
+            {
+                using (var provider = new AmazonCognitoIdentityProviderClient(RegionEndpoint.USEast2))
+                {
+                    await provider.AdminDeleteUserAsync(new AdminDeleteUserRequest
+                    {
+                        Username = userId,
+                        UserPoolId = UserPoolId
+                    });
                 }
             }
             catch (Exception ex)

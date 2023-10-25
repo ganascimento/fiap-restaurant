@@ -46,6 +46,11 @@ namespace modelo.Application.Mappers
 
             CreateMap<Pedido, HistoricoClienteResponse>()
                 .ForMember(x => x.Total, m => m.MapFrom(x => x.ItensPedido.Select(x => x.Produto.Valor).Sum()));
+
+            CreateMap<ItemPedido, HistoricoClienteProdutoUseCaseResponse>()
+                .ForMember(x => x.NomeProduto, m => m.MapFrom(x => x.Produto.Nome))
+                .ForMember(x => x.Valor, m => m.MapFrom(x => x.Produto.Valor))
+                .ForMember(x => x.NomeCategoria, m => m.MapFrom(x => x.Produto.Categoria.Nome));
         }
     }
 }

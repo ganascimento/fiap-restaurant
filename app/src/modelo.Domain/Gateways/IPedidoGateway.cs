@@ -9,8 +9,9 @@ namespace modelo.Domain.Gateways
     {
         Task<Pedido> GetPedidoBySenhaUseCaseAsync(int senha);
 
-        Task<IEnumerable<Pedido>> GetPedidosDetalhados();
+        Task<IEnumerable<Pedido>> GetPedidosDetalhadosAsync();
         Task<Pedido> GetIncludeAsync(Guid id);
+        Task<IEnumerable<Pedido>> GetHistoricoAsync(string userId);
         Task<Pedido> AddAsync(Pedido pedido);
     }
 }

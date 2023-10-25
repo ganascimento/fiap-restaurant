@@ -35,7 +35,7 @@ namespace modelo.Infrastructure.DataProviders.Repositories
             return result;
         }
 
-        public async Task<IEnumerable<Pedido>> GetPedidosDetalhados()
+        public async Task<IEnumerable<Pedido>> GetPedidosDetalhadosAsync()
         {
             var result = await _pedidoDbSet
                 .AsNoTracking()
@@ -62,10 +62,29 @@ namespace modelo.Infrastructure.DataProviders.Repositories
             return result;
         }
 
+        public async Task<IEnumerable<Pedido>> GetHistoricoAsync(string userId)
+        {
+            var result = await _pedidoDbSet
+                .AsNoTracking()
+                .Include(x => x.ItensPedido)
+                    .ThenInclude(x => x.Produto)
+                        .ThenInclude(x => x.Categoria)
+                .Include(x => x.Cliente)
+                .Include(x => x.Pagamento)
+                .Where(x => x.Cliente.UserId == userId)
+                .OrderByDescending(pedido => pedido.Status)
+                .ThenBy(pedido => pedido.Senha)
+                .ToListAsync();
+
+            return result;
+        }
+
         public async Task<Pedido> AddAsync(Pedido pedido)
         {
             pedido.DataCriacao = DateTime.UtcNow;
             _pedidoDbSet.Add(pedido);
+            _dbContext.Entry<Cliente>(pedido.Cliente).State = EntityState.Detached;
+
             await _dbContext.SaveChangesAsync();
 
             return pedido;

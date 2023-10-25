@@ -84,6 +84,7 @@ namespace modelo.API.Controllers
         }
 
         [HttpDelete("{Id}")]
+        [Authorize]
         public async Task<IActionResult> Delete([FromRoute] ClienteDeleteRequest request)
         {
             try

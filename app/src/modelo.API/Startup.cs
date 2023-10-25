@@ -37,6 +37,7 @@ namespace modelo.API
             services.AddSwaggerGen();
             services.AddCognitoIdentity();
             services.AuthenticationConfigurations(Configuration);
+            services.AddHttpContextAccessor();
 
             services.AddControllersWithViews(options =>
             {
@@ -85,6 +86,7 @@ namespace modelo.API
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

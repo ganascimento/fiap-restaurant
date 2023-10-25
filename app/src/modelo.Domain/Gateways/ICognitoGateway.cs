@@ -6,5 +6,6 @@ namespace modelo.Domain.Gateways
     public interface ICognitoGateway
     {
         Task<string> CreateUser(Cliente cliente);
+        Task DeleteUser(string userId);
     }
 }

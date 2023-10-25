@@ -74,6 +74,7 @@ namespace modelo.API.Controllers
         }
 
         [Authorize]
+        [HttpGet("historico")]
         public async Task<IActionResult> GetHistoricoCliente()
         {
             try

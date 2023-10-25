@@ -8,10 +8,12 @@ namespace modelo.Application.UseCases.ClienteUseCase
     public class DeleteClienteUseCaseAsync : IUseCaseAsync<ClienteDeleteRequest>
     {
         private readonly IClienteGateway _clienteGateway;
+        private readonly ICognitoGateway _cognitoGateway;
 
-        public DeleteClienteUseCaseAsync(IClienteGateway clienteGateway)
+        public DeleteClienteUseCaseAsync(IClienteGateway clienteGateway, ICognitoGateway cognitoGateway)
         {
             _clienteGateway = clienteGateway;
+            _cognitoGateway = cognitoGateway;
         }
 
         public async Task ExecuteAsync(ClienteDeleteRequest request)
@@ -20,6 +22,7 @@ namespace modelo.Application.UseCases.ClienteUseCase
             if (exists == null)
                 throw new KeyNotFoundException("Cliente não encontrado");
 
+            await _cognitoGateway.DeleteUser(exists.UserId.ToString());
             await _clienteGateway.DeleteAsync(request.Id);
         }
     }

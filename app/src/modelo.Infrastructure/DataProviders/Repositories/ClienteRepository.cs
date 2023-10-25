@@ -25,5 +25,14 @@ namespace modelo.Infrastructure.DataProviders.Repositories
 
             return null;
         }
+
+        public async Task<Cliente> GetByUserIdAsync(string userId)
+        {
+            var result = await _clienteDbSet.Where(x => x.UserId == userId).FirstOrDefaultAsync();
+            if (result != null)
+                return result;
+
+            return null;
+        }
     }
 }
