@@ -12,6 +12,12 @@ jobs:
 
     - name: Install kubectl
       uses: ianbelcher/eks-kubectl-action@master
+      with:
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_region: us-east-2
+        cluster_name: fiap-restaurant-g-cluster
+        kubernetes_version: v1.21.0
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2
