@@ -54,4 +54,6 @@ jobs:
     
     - name: Deploy to EKS
       run: |
+        ls .
+        ls ./kubernets
         kubectl apply -f ./kubernets/api-gh.yml
