@@ -46,6 +46,7 @@ jobs:
         echo "connectionString=${{ vars.CONNECTION_STRING }}" >> $GITHUB_ENV
         echo "poolId=${{ vars.POOL_ID }}" >> $GITHUB_ENV
         echo "poolClientId=${{ vars.POOL_CLIENT_ID }}" >> $GITHUB_ENV
+        echo "imgTag=${{ vars.IMAGE_TAG }}" >> $GITHUB_ENV
 
     - name: Set envs
       run: |
