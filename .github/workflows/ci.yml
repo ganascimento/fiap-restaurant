@@ -50,10 +50,9 @@ jobs:
     - name: Set envs
       run: |
         cd kubernets
-        envsubst < api-gh.yml > api-gh.yml 
+        envsubst < api-gh.template.yml > api-gh.yml 
     
     - name: Deploy to EKS
       run: |
-        ls .
-        ls ./kubernets
+        cat ./kubernets/api-gh.yml
         kubectl apply -f ./kubernets/api-gh.yml
