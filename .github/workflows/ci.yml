@@ -18,11 +18,11 @@ jobs:
         aws-region: us-east-2
 
     - name: Install kubectl
-      uses: ianbelcher/eks-kubectl-action@master
-      with:
-        cluster_name: fiap-restaurant-g-cluster
-        eks_role_arn: ${{ vars.EKS_ROLE }}
-        kubernetes_version: v1.21.0
+      uses: actions-hub/kubectl@master
+      env:
+        KUBE_HOST: ${{ vars.KUBE_HOST }}
+        KUBE_CERTIFICATE: ${{ vars.KUBE_CERTIFICATE }}
+        KUBE_TOKEN: ${{ vars.KUBE_TOKEN }}
 
     - name: Login to Amazon ECR
       id: login-ecr
@@ -37,6 +37,9 @@ jobs:
         docker build -t $REPOSITORY ./app/src
         docker tag $REPOSITORY:latest $REGISTRY/$REPOSITORY:$IMAGE_TAG
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+
+    - name: Update kube config
+      run: aws eks update-kubeconfig --region us-east-2 --name fiap-restaurant-g-cluster
 
     - name: Get envs
       run: |
