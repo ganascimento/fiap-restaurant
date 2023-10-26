@@ -2,6 +2,7 @@ name: Deploy to EKS
 on:
   pull_request:
     branches: [ "main" ]
+    types: [ "closed" ]
 
 jobs:
   deploy:
@@ -53,5 +54,4 @@ jobs:
     
     - name: Deploy to EKS
       run: |
-        kubectl config get-contexts
-        kubectl apply -f ./api-gh.yaml
+        kubectl apply -f ./kubernets/api-gh.yaml
