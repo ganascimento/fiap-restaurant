@@ -18,11 +18,10 @@ jobs:
         aws-region: us-east-2
 
     - name: Install kubectl
-      uses: actions-hub/kubectl@master
-      env:
-        KUBE_HOST: ${{ vars.KUBE_HOST }}
-        KUBE_CERTIFICATE: ${{ vars.KUBE_CERTIFICATE }}
-        KUBE_TOKEN: ${{ vars.KUBE_TOKEN }}
+      uses: ianbelcher/eks-kubectl-action@master
+      with:
+        cluster_name: fiap-restaurant-g-cluster
+        kubernetes_version: v1.21.0
 
     - name: Login to Amazon ECR
       id: login-ecr
