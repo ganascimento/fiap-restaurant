@@ -54,5 +54,4 @@ jobs:
     
     - name: Deploy to EKS
       run: |
-        cat ./kubernets/api-gh.yml
         kubectl apply -f ./kubernets/api-gh.yml
