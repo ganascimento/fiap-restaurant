@@ -15,7 +15,7 @@ spec:
       - name: ecr
       containers:
       - name: api
-        image: 860526977896.dkr.ecr.us-east-2.amazonaws.com/fiap-restaurant:1.0
+        image: 014440443810.dkr.ecr.us-east-2.amazonaws.com/fiap-restaurant:1.0
         resources:
           limits:
             memory: 256Mi
